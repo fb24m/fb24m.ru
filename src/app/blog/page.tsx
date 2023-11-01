@@ -5,7 +5,6 @@ import React from 'react';
 
 import { WordpressService } from '../../services/Wordpress';
 
-import { Sidebar } from '@/components/Sidebar';
 import { PostCard } from '@/components/PostCard';
 
 import { useQuery } from '@tanstack/react-query';
