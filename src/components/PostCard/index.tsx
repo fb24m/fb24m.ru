@@ -12,7 +12,7 @@ interface PostProps {
 export const PostCard = (props: PostProps): React.ReactElement => {
 	return (
 		<Card className={styles.card}>
-			<a href={`/blog/${props.slug}`} className={styles.link}><>
+			<a href={`/article?${props.slug}`} className={styles.link}><>
 				<Title2>{props.title}</Title2>
 				<div dangerouslySetInnerHTML={{ __html: props.excerpt }} />
 			</></a>
