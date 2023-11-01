@@ -1,0 +1,21 @@
+.card {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	background-color: var(--backgroundColor);
+	box-shadow: #00000030 0 0 10px;
+	border-radius: 8px;
+}
+
+.card_small {
+	padding: 8px;
+	border-radius: 4px;
+}
+
+.card_normal {
+	padding: 16px;
+}
+
+.card_big {
+	padding: 32px;
+}

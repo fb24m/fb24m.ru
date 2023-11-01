@@ -1,0 +1,1 @@
+export const conditionalText = (text: string | undefined): string => text ? text : ''

@@ -1,0 +1,21 @@
+@use 'sass:math';
+
+@mixin grid($count: 1, $breakpoint: 768px, $gap: 0) {
+	display: flex;
+
+	@if($gap !=0) {
+		gap: $gap;
+	}
+
+	@media (max-width: $breakpoint) {
+		flex-wrap: wrap;
+	}
+
+	&>* {
+		flex-basis: #{math.div(100, $count)}+'%';
+
+		@media (max-width: $breakpoint) {
+			flex-basis: 100%;
+		}
+	}
+}

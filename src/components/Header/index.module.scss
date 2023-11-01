@@ -1,0 +1,163 @@
+@use '../../scss/breakpoints';
+
+.title {
+	text-align: center;
+}
+
+.wrapper {
+	padding: 16px 0;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background-color: var(--backgroundColor);
+	z-index: 5;
+	box-shadow: #00000010 0 5px 10px;
+}
+
+.logoBlock {
+	a {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+
+		font-size: 30px;
+		font-weight: 700;
+		color: var(--foregroundColor);
+	}
+}
+
+.logo {
+	max-width: 40px !important;
+	height: 35px;
+	object-position: 0;
+}
+
+.container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	flex-wrap: wrap;
+	gap: 16px 24px;
+	background-color: var(--backgroundColor);
+
+	@media (max-width: breakpoints.$tablet) {
+		justify-content: space-between;
+	}
+}
+
+@mixin icon-only {
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.button {
+	span {
+		transition: max-width .5s;
+		display: inline-block;
+
+		@media (max-width: breakpoints.$tablet) {
+			max-width: 0;
+			overflow: hidden;
+		}
+	}
+
+	@media (max-width: breakpoints.$tablet) {
+		padding: 8px !important;
+		padding-right: 6px !important;
+	}
+
+	&.iconOnly {
+		@include icon-only;
+	}
+
+	&.iconMobile {
+		@media (max-width: breakpoints.$mobile) {
+			@include icon-only;
+		}
+	}
+}
+
+.menuOpened {}
+
+.menuClose {
+	transition: left .5s, transform .5s;
+	background: transparent;
+	border: 0;
+
+	display: none;
+
+	@media (max-width:breakpoints.$tablet) {
+		display: block;
+	}
+
+	&::before {
+		content: 'close';
+		color: transparent;
+		position: absolute;
+	}
+
+	i {
+		transition: color .5s;
+		font-size: 40px;
+		color: var(--foregroundColor);
+	}
+
+	.menuOpened & {
+		transform: translateY(-4px) rotateZ(360deg);
+
+		i {
+			color: transparent;
+		}
+
+		&::before {
+			font-family: 'Material Symbols Outlined';
+			font-size: 40px;
+			height: 40px;
+			transition: transform .5s, color .5s;
+			content: 'close';
+			color: var(--foregroundColor);
+			display: inline-block;
+			transform: rotateZ(0);
+		}
+	}
+}
+
+.list {
+	display: flex;
+	gap: 8px 32px;
+	flex-wrap: wrap;
+	justify-content: center;
+	transition: none;
+
+	@media (max-width: breakpoints.$tablet) {
+		transition: transform .5s;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		background-color: var(--backgroundColor);
+		padding: 100px 0;
+
+		transform: translateY(-100%);
+
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+		gap: 20px;
+
+		overflow-y: auto;
+	}
+
+	.menuOpened & {
+		@media (max-width: breakpoints.$tablet) {
+			transform: translateY(63px);
+		}
+	}
+}

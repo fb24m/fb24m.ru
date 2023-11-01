@@ -1,0 +1,17 @@
+@use 'sass:math';
+
+@function rem($px) {
+	@return #{math.div($px, 16)}+'rem';
+}
+
+@mixin adaptive-value($value: font-size, $maxval, $minval, $max-resolution: 1200, $min-resolution: 320) {
+	#{$value}: rem($maxval);
+
+	@media(max-width: #{$max-resolution}px) {
+		#{$value}: calc(rem($minval) + ($maxval - $minval) * ((100vw - #{$min-resolution}px) / ($max-resolution - $min-resolution)));
+	}
+
+	@media(max-width: #{$min-resolution}px) {
+		#{$value}: rem($minval);
+	}
+}

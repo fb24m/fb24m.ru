@@ -1,0 +1,45 @@
+@use "@/scss/breakpoints";
+
+.wrapper {
+	margin-bottom: 64px;
+}
+
+.title {
+	margin-bottom: 32px;
+}
+
+.container {
+	display: flex;
+
+	@media (max-width: breakpoints.$tablet) {
+		flex-wrap: wrap-reverse;
+	}
+}
+
+.cards {
+	display: flex;
+	gap: 24px;
+	margin-bottom: 32px;
+	flex-wrap: wrap;
+}
+
+.subblock:nth-child(1) {
+	flex-basis: 792px;
+}
+
+.image {
+	width: 100%;
+	// margin-top: 115px;
+
+	@media (max-width: 1200px) {
+		margin-top: 115px;
+	}
+}
+
+.card {
+	flex-basis: 180px;
+
+	@media (max-width: breakpoints.$mobile) {
+		flex-basis: 45%;
+	}
+}

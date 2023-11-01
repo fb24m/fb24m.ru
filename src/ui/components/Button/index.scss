@@ -1,0 +1,73 @@
+.button {
+	transition: background-color .2s, transform .5s;
+
+	cursor: pointer;
+	display: inline-flex;
+	position: relative;
+	padding: 8px 12px;
+	border-radius: 8px;
+	align-items: center;
+	justify-content: center;
+	gap: 4px;
+	font-size: 14px;
+	font-weight: 500;
+	border: none;
+	user-select: none;
+}
+
+.buttonPrimary {
+	background-color: var(--mainColor);
+	color: #fff;
+
+	&:hover {
+		background-color: var(--hoverColor);
+	}
+
+	&:active {
+		background-color: var(--activeColor);
+	}
+}
+
+.buttonSecondary {
+	padding: 6px 10px;
+	background-color: transparent;
+
+	border: var(--foregroundColor) 1px solid;
+	overflow: hidden;
+	color: var(--foregroundColor);
+
+	&::before {
+		transition: opacity .3s;
+		content: '';
+		background-color: var(--foregroundColor);
+
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+	}
+
+	&:hover::before {
+		opacity: 20%
+	}
+
+	&:active::before {
+		opacity: 40%
+	}
+}
+
+.buttonLink {
+	padding: 0;
+
+	color: var(--mainColor);
+
+	&:hover {
+		color: var(--hoverColor);
+	}
+
+	&:active {
+		color: var(--activeColor);
+	}
+}
