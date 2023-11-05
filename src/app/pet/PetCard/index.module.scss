@@ -1,0 +1,16 @@
+@use "@/scss/breakpoints.scss";
+
+.content {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.wrapper {
+	flex-direction: row !important;
+	align-items: center;
+
+	@media (max-width: breakpoints.$mobile-small) {
+		flex-wrap: wrap;
+	}
+}

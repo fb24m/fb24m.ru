@@ -1,19 +1,18 @@
 import styles from './index.module.scss';
-import React from 'react';
+import { ReactNode, HTMLAttributes } from 'react';
 
 import { Body1, Title3 } from '@/ui/components';
 
-interface AboutCardProps {
+interface AboutCardProps extends HTMLAttributes<HTMLDivElement> {
 	title: string,
 	description: string
-	className?: string
 }
 
-export const AboutCard = (props: AboutCardProps): React.ReactElement => {
+export const AboutCard = ({ title, description, ...props }: AboutCardProps): ReactNode => {
 	return (
-		<div className={`${props.className}`}>
-			<Title3 className={`observe ${styles.title}`}>{props.title}</Title3>
-			<Body1 className={`observe`}>{props.description}</Body1>
+		<div {...props}>
+			<Title3 className={`observe ${styles.title}`}>{title}</Title3>
+			<Body1 className={`observe`}>{description}</Body1>
 		</div>
 	);
 };

@@ -29,10 +29,10 @@
 }
 
 .buttonSecondary {
-	padding: 6px 10px;
 	background-color: transparent;
 
-	border: var(--foregroundColor) 1px solid;
+	outline: var(--foregroundColor) 1px solid;
+	outline-offset: -2px;
 	overflow: hidden;
 	color: var(--foregroundColor);
 
