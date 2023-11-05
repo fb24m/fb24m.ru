@@ -20,7 +20,10 @@
 	display: flex;
 	gap: 24px;
 	margin-bottom: 32px;
-	flex-wrap: wrap;
+
+	@media (max-width: breakpoints.$tablet-l) {
+		flex-wrap: wrap;
+	}
 }
 
 .subblock:nth-child(1) {

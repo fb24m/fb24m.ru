@@ -13,6 +13,11 @@
 	font-weight: 500;
 	border: none;
 	user-select: none;
+
+	&,
+	& span {
+		font-family: 'Montserrat', sans-serif;
+	}
 }
 
 .buttonPrimary {
@@ -33,6 +38,7 @@
 
 	outline: var(--foregroundColor) 1px solid;
 	outline-offset: -2px;
+
 	overflow: hidden;
 	color: var(--foregroundColor);
 

@@ -4,6 +4,7 @@ import { Welcome } from '@/components/welcome';
 import { About } from '@/components/About';
 import { Contact } from '@/components/Contact';
 import { Portfolio } from '@/components/Portfolio';
+import { ReviewsBlock } from '@/components/Reviews';
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <Welcome />
       <About />
       <Portfolio />
+      <ReviewsBlock />
       <Contact />
     </main>
   )

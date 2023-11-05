@@ -13,6 +13,15 @@ html {
 
 }
 
+* {
+	scroll-behavior: smooth;
+	scroll-padding-top: 90px;
+}
+
+html:has(._lock-html) {
+	overflow: hidden;
+}
+
 body {
 	padding-top: 96px;
 }

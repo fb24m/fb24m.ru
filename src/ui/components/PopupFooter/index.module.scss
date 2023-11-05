@@ -1,8 +1,15 @@
+@use "@/scss/breakpoints";
+
 .popupFooter {
 	background-color: var(--backgroundMicaColor);
 	backdrop-filter: blur(16px);
 	border-radius: 0 0 8px 8px;
 	max-width: 400px;
-	width: min(100%, calc(100vw - 40px));
+	width: 100%;
 	padding: 24px 40px;
+
+	@media (max-width: breakpoints.$mobile) {
+		max-width: 100%;
+		border-radius: 0;
+	}
 }

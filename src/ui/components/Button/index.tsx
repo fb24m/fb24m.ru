@@ -1,5 +1,4 @@
 import "./index.scss";
-import { useContext } from 'react';
 
 interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
 	as?: 'a' | 'button'

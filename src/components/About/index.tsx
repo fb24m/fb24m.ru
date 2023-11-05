@@ -11,13 +11,13 @@ export const About = (): React.ReactElement => (
 				<Label className={`observe ${styles.label}`}>обо мне</Label>
 				<Title2 className={`observe ${styles.title}`}>Кто я такой?</Title2>
 				<div className={styles.cards}>
-					<AboutCard className={styles.card} title='3 года' description='в сфере Frontend-разработки' />
+					<AboutCard className={styles.card} title='3 года' description='в сфере Frontend-разработки, почти' />
 					<AboutCard className={styles.card} title='Более 20' description='заказчиков за 2 месяца' />
 					<AboutCard className={styles.card} title='Более 10' description='проектов за 2 месяца' />
 					<AboutCard className={styles.card} title='Более 50' description='страниц за 2 месяца' />
 				</div>
 				<Box className={styles.buttons}>
-					<Button className={`observe`} icon={<Icon name='phone_enabled' />} as='a' appearance='Primary'>Связаться</Button>
+					<Button className={`observe`} icon={<Icon name='phone_enabled' />} href='#contact' as='a' appearance='Primary'>Связаться</Button>
 					<Button className={`observe`} icon={<Icon name='laptop' />} href='#portfolio' as='a' appearance='Secondary'>В портфолио</Button>
 				</Box>
 			</div>

@@ -6,7 +6,7 @@ import React from 'react';
 
 import { Button, Icon, Image, useModal, Alignment, Box } from '@/ui/components';
 import { useState, useContext } from 'react';
-import { SettingsContext } from '../../contexts/SettingsProvider';
+import { SettingsContext } from '@/contexts/SettingsProvider';
 import { ContactForm } from '@/components/ContactForm';
 import { getOppositeTheme } from '@/functions/getOppositeTheme';
 
@@ -67,12 +67,12 @@ export const Header = (): React.ReactElement => {
 							icon={<Icon name='phone_enabled' />}
 							as='button'
 							appearance='Primary'><span>Связаться</span></Button>
-						<Button
+						{/* <Button
 							onClick={toggleTheme}
 							className={`observe ${styles.button} ${styles.iconOnly}`}
 							icon={<Icon name={`${oppositeTheme}_mode`} />}
 							as='button'
-							appearance='Secondary'> </Button>
+							appearance='Secondary'> </Button> */}
 					</Box>
 				</div>
 			</header>
