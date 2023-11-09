@@ -19,7 +19,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 		openGraph: {
 			title: (await post).title.rendered,
 			description: (await post).title.rendered,
-			url: `https://fb24m.ru/blog/${(await post).slug}`
+			url: `https://fb24m.ru/blog/${(await post).slug}`,
+			images: ['https://fb24m.ru/.png'],
 		},
 	}
 }
