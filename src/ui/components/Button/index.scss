@@ -1,5 +1,5 @@
 .button {
-	transition: background-color .2s, transform .5s;
+	transition: transform .5s;
 
 	cursor: pointer;
 	display: inline-flex;
@@ -14,6 +14,10 @@
 	border: none;
 	user-select: none;
 
+	@media(hover: hover) {
+		transition: transform .5s, background-color .5s;
+	}
+
 	&,
 	& span {
 		font-family: 'Montserrat', sans-serif;
@@ -24,8 +28,11 @@
 	background-color: var(--mainColor);
 	color: #fff;
 
-	&:hover {
-		background-color: var(--hoverColor);
+	@media(hover: hover) {
+
+		&:hover {
+			background-color: var(--hoverColor);
+		}
 	}
 
 	&:active {
@@ -55,8 +62,10 @@
 		opacity: 0;
 	}
 
-	&:hover::before {
-		opacity: 20%
+	@media(hover: hover) {
+		&:hover::before {
+			opacity: 20%
+		}
 	}
 
 	&:active::before {

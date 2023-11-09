@@ -10,9 +10,9 @@ interface AboutCardProps extends HTMLAttributes<HTMLDivElement> {
 
 export const AboutCard = ({ title, description, ...props }: AboutCardProps): ReactNode => {
 	return (
-		<div {...props}>
+		<section {...props}>
 			<Title3 className={`observe ${styles.title}`}>{title}</Title3>
 			<Body1 className={`observe`}>{description}</Body1>
-		</div>
+		</section>
 	);
 };

@@ -11,7 +11,7 @@ export const Welcome = (): React.ReactElement => {
 	</>
 
 	return (
-		<div className={styles.block}>
+		<article className={styles.block}>
 			<div className="container">
 				<div className={`${styles.columns}`}>
 					<div className={`observe ${styles.column}`}>
@@ -43,6 +43,6 @@ export const Welcome = (): React.ReactElement => {
 						description='Сайты одинаково хорошо выглядят на всех размерах экранов - от 1920 до 360. А если адаптива в макете нет - сделаю его сам или по вашим пожеланиям' />
 				</div>
 			</div>
-		</div>
+		</article>
 	);
 };

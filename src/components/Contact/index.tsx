@@ -6,7 +6,7 @@ import { Card, Alignment, Image, MarkedList, Title3 } from '@/ui/components/';
 
 export const Contact = (): React.ReactElement => {
 	return (
-		<div className={`container ${styles.container}`} id='contact'>
+		<article className={`container ${styles.container}`} id='contact'>
 			<MarkedList>
 				<li className={`observe ${styles.item}`}>
 					Уже нашли подходящую услугу и хотите заказать? Или еще не нашли, и хотите получить помощь в выборе?
@@ -31,6 +31,6 @@ export const Contact = (): React.ReactElement => {
 			<div className={styles.block}>
 				<Image src="home/contact.png" alt="" />
 			</div>
-		</div>
+		</article>
 	);
 };

@@ -1,0 +1,15 @@
+.container {
+	max-width: 720px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.labels {
+	font-family: 'Roboto', sans-serif;
+}
+
+.title {
+	// text-align: center;
+	line-height: 170%;
+}

@@ -5,7 +5,7 @@ import { Title2, Label, Button, Icon, Image, Box } from '@/ui/components';
 import { AboutCard } from './AboutCard';
 
 export const About = (): React.ReactElement => (
-	<div className={styles.wrapper}>
+	<article className={styles.wrapper}>
 		<div className={`${styles.container} container`}>
 			<div className={styles.subblock}>
 				<Label className={`observe ${styles.label}`}>обо мне</Label>
@@ -25,5 +25,5 @@ export const About = (): React.ReactElement => (
 				<Image className={styles.image} src="home/about-image.png" alt="" />
 			</div>
 		</div>
-	</div>
+	</article>
 );

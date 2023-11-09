@@ -11,12 +11,12 @@ interface AdvantageProps {
 
 export const Advantage = (props: AdvantageProps): JSX.Element => {
 	return (
-		<div className={props.className + ' ' + styles.card} data-da={props.dataDa}>
+		<section className={props.className + ' ' + styles.card} data-da={props.dataDa}>
 			<div className={styles.header}>
 				<Icon className={`observe ${styles.icon}`} name={props.icon} />
 				<Title3 className={`observe`}>{props.title}</Title3>
 			</div>
 			<Body1 className='observe'>{props.description}</Body1>
-		</div>
+		</section>
 	)
 }

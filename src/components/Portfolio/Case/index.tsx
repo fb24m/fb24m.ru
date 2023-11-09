@@ -10,7 +10,7 @@ interface CaseProps {
 
 export const Case = (props: CaseProps): React.ReactElement => {
 	return (
-		<Card>
+		<Card as="section">
 			<Image className={styles.image} src={props.image} alt='' />
 			<Title4 className='observe'>{props.title}</Title4>
 		</Card>
