@@ -7,6 +7,11 @@ import { Provider } from '@/components/Provider';
 export const metadata: Metadata = {
   title: 'fb24m',
   description: 'Блог о веб-разработке и фронтенде',
+  openGraph: {
+    title: 'fb24m',
+    description: 'Блог о веб-разработке и фронтенде',
+    images: ['https://fb24m.ru/.png']
+  }
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
