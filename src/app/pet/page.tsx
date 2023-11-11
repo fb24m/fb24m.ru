@@ -3,7 +3,7 @@ import React from 'react';
 import { Metadata } from 'next';
 
 import { PetCard } from './PetCard';
-import { Body1, Box, Title1, Title2 } from '@/ui/components';
+import { Body1, Box, Title2 } from '@/ui/components';
 
 export async function generateMetadata(): Promise<Metadata> {
 	const { data: settings } = await WordpressService.getSettings();

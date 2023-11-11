@@ -15,8 +15,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 	const { data } = await WordpressService.getPostBySlug(params.slug);
 	const [post] = data;
 
-	post
-
 	if (post) return {
 		title: post.title.rendered,
 		openGraph: {
