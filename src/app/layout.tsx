@@ -3,6 +3,7 @@ import './globals.css'
 import { Header } from '@/components/Header';
 
 import { Provider } from '@/components/Provider';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'fb24m',
@@ -18,6 +19,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
+        <Script>
+
+
+        </Script>
         <Provider>
           <Header />
           {children}

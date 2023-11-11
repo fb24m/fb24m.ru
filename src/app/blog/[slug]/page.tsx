@@ -12,17 +12,21 @@ interface PageProps {
 export const dynamicParams = true;
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-	const post = WordpressService.getPostBySlug(params.slug).then((data) => data.data[0]);
+	const { data } = await WordpressService.getPostBySlug(params.slug);
+	const [post] = data;
 
-	return {
-		title: (await post).title.rendered,
+	post
+
+	if (post) return {
+		title: post.title.rendered,
 		openGraph: {
-			title: (await post).title.rendered,
-			description: (await post).title.rendered,
-			url: `https://fb24m.ru/blog/${(await post).slug}`,
+			title: post.title.rendered,
+			description: post.title.rendered,
+			url: `https://fb24m.ru/blog/${post.slug}}`,
 			images: ['https://fb24m.ru/.png'],
 		},
 	}
+	return {}
 }
 
 export default async function Post(props: PageProps) {

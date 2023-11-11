@@ -1,10 +1,8 @@
 // import styles from './index.module.scss';
-'use client';
 
 import React from 'react';
 
 import { Popup, PopupBody, PopupFooter, Button, Box, Icon, Alignment, Title3 } from '@/ui/components';
-import { QueryClient, dehydrate, useQuery } from '@tanstack/react-query';
 import { WordpressService } from '@/services/Wordpress';
 
 export interface PopupProps {
@@ -12,39 +10,18 @@ export interface PopupProps {
 	togglePopup: Function
 };
 
-const getChangelog = () => {
-	return WordpressService.getGlobalFileBySlug('changelog');
-}
+export const WhatsNewPopup = async (props: PopupProps) => {
+	const { data } = await WordpressService.getGlobalFileBySlug('changelog');
+	const [changelog] = data;
 
-export async function getStaticProps() {
-	const queryClient = new QueryClient()
-
-	await queryClient.prefetchQuery({
-		queryKey: ['changelog'],
-		queryFn: getChangelog,
-	})
-
-	return {
-		props: {
-			dehydratedState: dehydrate(queryClient),
-		},
-	}
-}
-
-export const WhatsNewPopup = (props: PopupProps): React.ReactElement => {
-	const { isLoading, isError, data } =
-		useQuery({ queryKey: ['changelog'], queryFn: getChangelog })
-
-	if (isLoading) return <>Подождите...</>
-	if (isError) return <>Ошибка</>
-	if (!data) return <>Неизвестная ошибка</>
+	if (!changelog) return <>ошибка</>
 	return (
 		<Popup bind={props.bind}>
 			<PopupBody>
 				<Box justify={Alignment.center}>
 					<Title3>Что нового</Title3>
 				</Box>
-				<Box className='eval' direction="column" dangerouslySetInnerHTML={{ __html: data.data[0].content.rendered }}></Box>
+				<Box className='eval' direction="column" dangerouslySetInnerHTML={{ __html: changelog.content.rendered }}></Box>
 			</PopupBody>
 			<PopupFooter>
 				<Box justify={Alignment.end}>
