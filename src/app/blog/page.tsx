@@ -18,7 +18,7 @@ export default async function Blog() {
 	// деструктуризация объекта с ссылками с ссылками на объекты
 	const { data: posts } = await WordpressService.getPosts();
 
-	if (!posts) return <>Что-то все совсем плохо... срочно пишите в хелп по сайту! help@fb24m.ru</>
+	if (!posts) return <>help@fb24m.ru</>
 
 	return (
 		<div className={`container container-grid ${styles.container}`}>
