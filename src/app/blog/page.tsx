@@ -5,6 +5,8 @@ import { WordpressService } from '../../services/Wordpress';
 
 import { PostCard } from '@/components/PostCard';
 import { Metadata } from 'next';
+import axios from 'axios';
+import { IPost } from '@/interfaces/IPost';
 
 export async function generateMetadata(): Promise<Metadata> {
 	const { data: settings } = await WordpressService.getSettings();
@@ -16,7 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function Blog() {
 	// деструктуризация объекта с ссылками с ссылками на объекты
-	const { data: posts } = await WordpressService.getPosts();
+	const { data: posts } = await axios.get<IPost[]>(`https://www.fb24m.ru/fb24m/wp-json/wp/v2/posts`);
 
 	if (!posts) return <>help@fb24m.ru</>
 
