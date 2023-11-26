@@ -1,47 +1,61 @@
-import styles from './index.module.scss';
-import React from 'react';
+'use client';
 
-import { API, WordpressService } from '../../services/Wordpress';
+import styles from './index.module.scss';
+import React, { useEffect, useState } from 'react';
+
+import { WordpressService } from '../../services/Wordpress';
 
 import { PostCard } from '@/components/PostCard';
-import { Metadata } from 'next';
 import { IPost } from '@/interfaces/IPost';
-import { revalidateTag } from 'next/cache';
+import { Axios, AxiosResponse } from 'axios';
 
-export async function generateMetadata(): Promise<Metadata> {
-	const { data: settings } = await WordpressService.getSettings();
+const useQuery = (queryFn: any) => {
+	const [loaded, setLoaded] = useState(false);
+	const [posts, setPosts] = useState<IPost[] | false>(false);
 
-	return {
-		title: `Блог - ${settings.name}`
-	}
+	useEffect(() => {
+		if (!loaded) {
+			console.log('hook call');
+
+			queryFn().then((data: AxiosResponse) => {
+				setPosts(data.data)
+			});
+		}
+		setLoaded(true);
+	}, [loaded]);
+
+	return posts;
 }
 
-export default async function Blog() {
-	revalidateTag('posts');
-	// деструктуризация объекта с ссылками с ссылками на объекты
-	const response = await fetch(`${API}/posts`, { next: { tags: ['posts'] } });
-	const posts: IPost[] = await response.json();
+export default function Blog() {
+	const posts = useQuery(() => WordpressService.getPosts());
 
 	console.log(posts);
+	// деструктуризация объекта с ссылками с ссылками на объекты
+
+
+	// console.log(posts);
 
 	if (!posts) return <>help@fb24m.ru</>
-
-	return (
-		<div className={`container container-grid ${styles.container}`}>
-			<div className="main">
-				{/* использование ссылки с ссылкой в компоненте */}
-				{posts.map((item) =>
-					<PostCard key={item.id}
-						title={item.title.rendered}
-						excerpt={item.excerpt.rendered}
-						image={''}
-						slug={item.slug}
-					/>
-				)}
+	if (posts)
+		return (
+			<div className={`container container-grid ${styles.container}`}>
+				<div className="main">
+					{/* использование ссылки с ссылкой в компоненте */}
+					{posts ? posts.map((item) =>
+						<PostCard key={item.id}
+							title={item.title.rendered}
+							excerpt={item.excerpt.rendered}
+							image={''}
+							slug={item.slug}
+						/>
+					) : ''}
+					{/* {posts[0].date} */}
+				</div>
+				<div className={styles.sidebar}>
+					{/* <Sidebar /> */}
+				</div>
 			</div>
-			<div className={styles.sidebar}>
-				{/* <Sidebar /> */}
-			</div>
-		</div>
-	);
+		);
+	else return <></>
 };
