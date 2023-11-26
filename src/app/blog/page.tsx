@@ -1,10 +1,12 @@
 import styles from './index.module.scss';
 import React from 'react';
 
-import { WordpressService } from '../../services/Wordpress';
+import { API, WordpressService } from '../../services/Wordpress';
 
 import { PostCard } from '@/components/PostCard';
 import { Metadata } from 'next';
+import { IPost } from '@/interfaces/IPost';
+import { revalidateTag } from 'next/cache';
 
 export async function generateMetadata(): Promise<Metadata> {
 	const { data: settings } = await WordpressService.getSettings();
@@ -15,8 +17,10 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Blog() {
+	revalidateTag('posts');
 	// деструктуризация объекта с ссылками с ссылками на объекты
-	const { data: posts } = await WordpressService.getPosts();
+	const response = await fetch(`${API}/posts`, { next: { tags: ['posts'] } });
+	const posts: IPost[] = await response.json();
 
 	console.log(posts);
 

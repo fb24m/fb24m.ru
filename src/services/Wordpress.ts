@@ -5,7 +5,7 @@ import { IPet } from '../interfaces/IPet';
 import { ISettings } from '../interfaces/ISettings';
 import { IPage } from '../interfaces/IPage';
 
-const API = 'https://www.fb24m.ru/fb24m/wp-json/wp/v2';
+export const API = 'https://www.fb24m.ru/fb24m/wp-json/wp/v2';
 
 export const WordpressService = {
 	getPetProjects: () => axios.get<IPet[]>(`${API}/pet`),
