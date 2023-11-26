@@ -18,7 +18,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function Blog() {
 	// деструктуризация объекта с ссылками с ссылками на объекты
-	const { data: posts } = await axios.get<IPost[]>(`https://www.fb24m.ru/fb24m/wp-json/wp/v2/posts`);
+	const response = await fetch(`https://www.fb24m.ru/fb24m/wp-json/wp/v2/posts`);
+	const posts: IPost[] = await response.json();
 
 	if (!posts) return <>help@fb24m.ru</>
 
