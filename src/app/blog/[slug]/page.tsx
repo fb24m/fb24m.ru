@@ -1,9 +1,10 @@
 import styles from "./style.module.scss";
 import { Metadata } from "next";
 
-import { Alignment, Box, Icon, Title2 } from "@/ui/components";
+import { Alignment, Box, Icon, Title2, Title3 } from "@/ui/components";
 import { formatDate } from "@/functions/formatDate";
-import { WordpressService } from "@/services/Wordpress";
+import { Wordpress } from "@/services/Wordpress";
+import { WpImage } from '../../../components/WpImage/WpImage.component';
 
 interface PageProps {
 	params: { slug: string }
@@ -12,7 +13,7 @@ interface PageProps {
 export const dynamicParams = true;
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-	const { data } = await WordpressService.getPostBySlug(params.slug);
+	const data = await Wordpress.getPostBySlug(params.slug);
 	const [post] = data;
 
 	if (post) return {
@@ -29,17 +30,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function Post(props: PageProps) {
 	const { params } = props;
-	const { data } = await WordpressService.getPostBySlug(params.slug);
+	const data = await Wordpress.getPostBySlug(params.slug);
 
 	return (
 		<div className={`container ${styles.container}`}>
-			<Title2 className={styles.title}>{data[0]?.title.rendered}</Title2>
-			<Box className={styles.labels}>
-				<Box gap={4} align={Alignment.center}><Icon name='person' />fb24m</Box>
-				<Box gap={4} align={Alignment.center}><Icon name='calendar_month' />
-					{formatDate(data[0]?.date)}
-				</Box>
-			</Box>
+			<div className={styles.base}>
+				<WpImage className={styles.image} imageId={data[0].featured_media} />
+				<div className={styles.info}>
+					<Title3 className={styles.title}>{data[0]?.title.rendered}</Title3>
+					<Box className={styles.labels}>
+						<Box gap={4} align={Alignment.center}><Icon name='person' />fb24m</Box>
+						<Box gap={4} align={Alignment.center}><Icon name='calendar_month' />
+							{formatDate(data[0]?.date)}
+						</Box>
+					</Box>
+				</div>
+			</div>
 			<div className={'eval ' + styles.content} dangerouslySetInnerHTML={{ __html: data[0]?.content.rendered }}></div>
 		</div>
 	)

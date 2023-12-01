@@ -1,12 +1,12 @@
 import { ReactNode, createContext } from 'react';
-import { WordpressService } from '../services/Wordpress';
+import { Wordpress } from '../services/Wordpress';
 
 const defaultSettings = { name: '...', description: '...', site_icon_url: '...' }
 
 export const SettingsContext = createContext(defaultSettings);
 
 export const SettingsProvider = async (props: { children: ReactNode }) => {
-	const { data: settings } = await WordpressService.getSettings()
+	const { data: settings } = await Wordpress.getSettings()
 
 	if (!settings) return <SettingsContext.Provider value={defaultSettings}>{props.children}</SettingsContext.Provider>
 

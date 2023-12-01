@@ -3,7 +3,7 @@
 import React from 'react';
 
 import { Popup, PopupBody, PopupFooter, Button, Box, Icon, Alignment, Title3 } from '@/ui/components';
-import { WordpressService } from '@/services/Wordpress';
+import { Wordpress } from '@/services/Wordpress';
 
 export interface PopupProps {
 	bind: string
@@ -11,7 +11,7 @@ export interface PopupProps {
 };
 
 export const WhatsNewPopup = async (props: PopupProps) => {
-	const { data } = await WordpressService.getGlobalFileBySlug('changelog');
+	const { data } = await Wordpress.getGlobalFileBySlug('changelog');
 	const [changelog] = data;
 
 	if (!changelog) return <>ошибка</>

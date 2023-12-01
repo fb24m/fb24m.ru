@@ -1,3 +1,4 @@
+import Link from "next/link";
 import "./index.scss";
 
 interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
@@ -12,10 +13,10 @@ interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
 
 export const Button = ({ as, icon, className, href, children, appearance, ...props }: ButtonProps): JSX.Element => {
 	if (as === 'a') {
-		return <a className={`button button${appearance} ${className}`} href={href}>
+		return <Link className={`button button${appearance} ${className}`} href={href!}>
 			{icon ? icon : ''}
 			{children}
-		</a>
+		</Link>
 	}
 	else {
 		return <button {...props} className={`button button${appearance} ${className}`}>
