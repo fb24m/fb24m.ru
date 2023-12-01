@@ -3,14 +3,13 @@
 import styles from './index.module.scss';
 import React from 'react';
 
-import { WordpressService } from '../../services/Wordpress';
+import { API } from '../../services/Wordpress';
 
 import { PostCard } from '@/components/PostCard';
-
+import { IPost } from '@/interfaces/IPost';
 export default async function Blog() {
-	const { data: posts } = await WordpressService.getPosts();
-
-	console.log(posts);
+	const response = await fetch(`${API}/posts`, { next: { tags: ["posts"], revalidate: 1 }, cache: "no-cache" });
+	const posts: IPost[] = await response.json();
 
 	if (!posts) return <>help@fb24m.ru</>
 	if (posts)
