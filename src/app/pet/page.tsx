@@ -1,4 +1,4 @@
-import { WordpressService } from '../../services/Wordpress';
+import { Wordpress } from '../../services/Wordpress';
 import React from 'react';
 import { Metadata } from 'next';
 
@@ -6,7 +6,7 @@ import { PetCard } from './PetCard';
 import { Body1, Box, Title2 } from '@/ui/components';
 
 export async function generateMetadata(): Promise<Metadata> {
-	const { data: settings } = await WordpressService.getSettings();
+	const settings = await Wordpress.getSettings();
 
 	return {
 		title: `Пет-проекты - ${settings.name}`
@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Pet() {
-	const { data } = await WordpressService.getPetProjects();
+	const { data } = await Wordpress.getPetProjects();
 
 	if (data) return (
 		<Box direction="column" className="container">

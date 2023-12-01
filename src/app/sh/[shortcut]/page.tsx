@@ -1,5 +1,4 @@
-import { WordpressService } from "@/services/Wordpress"
-import { Metadata } from "next"
+import { Wordpress } from "@/services/Wordpress"
 import { redirect } from "next/navigation"
 
 
@@ -8,7 +7,7 @@ interface PageProps {
 }
 
 export default async function Shortcut(props: PageProps) {
-	const { data } = await WordpressService.getShortcutByName(props.params.shortcut);
+	const data = await Wordpress.getShortcutByName(props.params.shortcut);
 
 	if (data[0]) {
 		redirect(data[0].acf.link);
