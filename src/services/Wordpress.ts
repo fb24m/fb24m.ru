@@ -10,7 +10,7 @@ export const API = 'https://www.fb24m.ru/fb24m/wp-json/wp/v2';
 export const WordpressService = {
 	getPetProjects: () => axios.get<IPet[]>(`${API}/pet`),
 	// Получение постов
-	getPosts: () => axios.get<IPost[]>(`${API}/posts?key=${Math.random() * 999999}`),
+	getPosts: () => axios.get<IPost[]>(`${API}/posts`),
 	getPostBySlug: (slug: string) => axios.get<IPost[]>(`${API}/posts?slug=${slug}`),
 	// Получение страниц
 	getPages: () => axios.get<IPage[]>(`${API}/pages`),
