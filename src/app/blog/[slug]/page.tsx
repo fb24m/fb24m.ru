@@ -15,6 +15,7 @@ export const dynamicParams = true;
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
 	const data = await Wordpress.getPostBySlug(params.slug);
 	const [post] = data;
+	const image = await Wordpress.getMediaById(post.featured_media);
 
 	if (post) return {
 		title: post.title.rendered,
@@ -22,7 +23,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 			title: post.title.rendered,
 			description: post.excerpt.rendered.replace(/[<p>,</p>]/g, ''),
 			url: `https://fb24m.ru/blog/${post.slug}}`,
-			images: ['https://fb24m.ru/.png'],
+			images: [image.guid.rendered],
 		},
 	}
 	return {}
