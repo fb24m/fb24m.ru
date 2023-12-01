@@ -9,9 +9,14 @@ interface AdvantageProps {
 	className?: string
 }
 
+const clsx = (className?: string) => {
+	if (className) return { className: className }
+	else return {}
+}
+
 export const Advantage = (props: AdvantageProps): JSX.Element => {
 	return (
-		<section className={props.className + ' ' + styles.card} data-da={props.dataDa}>
+		<section {...clsx(props.className)} data-da={props.dataDa}>
 			<div className={styles.header}>
 				<Icon className={`observe ${styles.icon}`} name={props.icon} />
 				<Title3 className={`observe`}>{props.title}</Title3>

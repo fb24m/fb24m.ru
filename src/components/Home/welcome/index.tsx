@@ -4,12 +4,12 @@ import React from 'react';
 import { Label, Title1, Body1, Button, Icon, Image } from '@/ui/components';
 import { Advantage } from './Advantage';
 
-export const Welcome = (): React.ReactElement => {
-	const cards: React.ReactElement = <>
-		<Advantage className={styles.mobile} icon="cycle" title="Оптимизация" description="Картинки сжимаются, шрифты уменьшаются - без потери качества. Это обеспечивает быструю загрузку сайтов на медленных устройствах" />
-		<Advantage className={styles.mobile} icon="frame_source" title="Исходники" description="Исходники - SCSS и Nunjucks (или любые препроцессоры на ваш выбор). Дам их бесплатно, а если надо - объясню зачем они и куда их деть" />
-	</>
+const cards: React.ReactElement = <>
+	<Advantage className={styles.mobile} icon="cycle" title="Оптимизация" description="Картинки сжимаются, шрифты уменьшаются - без потери качества. Это обеспечивает быструю загрузку сайтов на медленных устройствах" />
+	<Advantage className={styles.mobile} icon="frame_source" title="Исходники" description="Исходники - SCSS и Nunjucks (или любые препроцессоры на ваш выбор). Дам их бесплатно, а если надо - объясню зачем они и куда их деть" />
+</>
 
+export const Welcome = (): React.ReactElement => {
 	return (
 		<article className={styles.block}>
 			<div className="container">
