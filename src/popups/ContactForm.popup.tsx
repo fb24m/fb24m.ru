@@ -23,7 +23,9 @@ export const ContactFormPopup = (props: ContactFormPopupProps) => {
 				<ContactForm />
 			</PopupBody>
 			<PopupFooter>
-				<Button type="submit" appearance="Primary" onClick={() => alert('Форма отправлена')}>Отравить</Button>
+				<div onClick={() => alert('Форма отправлена')}>
+					<Button type="submit" appearance="Primary">Отравить</Button>
+				</div>
 			</PopupFooter>
 
 		</Popup>
