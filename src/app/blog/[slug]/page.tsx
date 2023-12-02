@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 			title: post.title.rendered,
 			description: post.excerpt.rendered.replace(/[<p>,</p>]/g, ''),
 			url: `https://fb24m.ru/blog/${post.slug}}`,
-			images: [image.guid.rendered],
+			images: [image?.guid?.rendered],
 		},
 	}
 	return {}

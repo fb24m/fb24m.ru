@@ -63,6 +63,12 @@ body {
 	hyphens: auto;
 }
 
+.eval img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 8px;
+}
+
 .eval,
 .eval blockquote {
 	display: flex;
