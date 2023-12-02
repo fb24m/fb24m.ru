@@ -1,0 +1,64 @@
+@use '../../scss/breakpoints';
+
+.title {
+	text-align: center;
+}
+
+.wrapper {
+	padding: 16px 0;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background-color: var(--backgroundColor);
+	z-index: 5;
+	box-shadow: #00000010 0 5px 10px;
+}
+
+.logoBlock {
+	a {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+
+		font-size: 30px;
+		font-weight: 700;
+		color: var(--foregroundColor);
+	}
+}
+
+.logo {
+	max-width: 40px !important;
+	height: 35px;
+	object-position: 0;
+}
+
+.container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	gap: 16px;
+	background-color: var(--backgroundColor);
+
+	@media (max-width: breakpoints.$tablet) {
+		justify-content: space-between;
+	}
+}
+
+.button {
+	span {
+		transition: max-width .5s;
+		display: inline-block;
+
+		@media (max-width: breakpoints.$tablet) {
+			max-width: 0;
+			overflow: hidden;
+		}
+	}
+
+	@media (max-width: breakpoints.$tablet) {
+		padding: 8px !important;
+		padding-right: 6px !important;
+	}
+}

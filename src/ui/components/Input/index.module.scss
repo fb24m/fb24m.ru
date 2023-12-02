@@ -1,0 +1,77 @@
+.input {
+	border: none;
+	outline: none;
+	flex-grow: 1;
+	font-size: 16px;
+	background-color: var(--backgroundColor);
+	color: var(--foregroundColor);
+}
+
+.wrapper {
+	transition: border .3s;
+	border: var(--foregroundColor) 1px solid;
+
+	display: inline-flex;
+	align-items: center;
+
+	position: relative;
+	padding: 12px 16px;
+	border-radius: 8px;
+	min-width: 244px;
+
+	&:has(i) {
+		padding: 10px 16px;
+	}
+
+	i {
+		transition: color .3s;
+		font-size: 24px;
+	}
+
+	&:has(input:focus) {
+		border-color: var(--mainColor);
+
+		i {
+			color: var(--mainColor);
+		}
+	}
+}
+
+.label {
+	position: absolute;
+	left: 16px;
+	padding: 0 4px;
+
+	color: gray;
+	background-color: var(--backgroundColor);
+
+	pointer-events: none;
+
+	font-size: 16px;
+
+	top: 50%;
+	transform: translateY(-50%);
+	transition: top .3s, font-size .3s, transform .3s, color .3s;
+
+	.wrapper:has(i) & {
+		margin-left: 28px;
+	}
+}
+
+.input {
+	.wrapper:has(i) & {
+		margin-left: 8px;
+	}
+
+	&:focus+.label,
+	&:not(:placeholder-shown)+.label {
+		color: var(--foregroundColor);
+		top: 0;
+		transform: translate(0, -9px);
+		font-size: 14px;
+	}
+
+	&:focus+.label {
+		color: var(--mainColor);
+	}
+}

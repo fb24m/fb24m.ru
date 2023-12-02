@@ -1,0 +1,15 @@
+@use "@/scss/breakpoints";
+
+.popupBody {
+	width: 100%;
+	background-color: var(--backgroundColor);
+	padding: 64px;
+	max-height: 100%;
+	overflow-y: auto;
+	border-radius: 8px 8px 0 0;
+
+	@media (max-width: breakpoints.$medium) {
+		flex-grow: 1;
+		padding: 32px;
+	}
+}
