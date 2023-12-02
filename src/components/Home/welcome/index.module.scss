@@ -5,6 +5,11 @@
 	margin-bottom: 64px;
 }
 
+.body {
+	width: 100%;
+	margin-top: 1em;
+}
+
 .columns {
 	@include grid.grid(3, $gap: 24px);
 	margin-bottom: 24px;
@@ -12,7 +17,17 @@
 }
 
 .title {
-	margin-bottom: 8px;
+	// margin-bottom: 8px;
+
+	span {
+		padding: 0 16px;
+		background-color: var(--mainColor);
+		color: var(--backgroundColor);
+		border-radius: 999px;
+
+		font-weight: 500;
+		text-transform: lowercase;
+	}
 }
 
 .description {

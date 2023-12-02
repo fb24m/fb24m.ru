@@ -3,7 +3,8 @@ import './globals.css'
 import { Header } from '@/components/Header';
 
 import { Provider } from '@/components/Provider';
-import Script from 'next/script';
+import { montserrat } from '@/fonts';
+import { DataSend } from '@/components/DataSend/DataSend.component';
 
 export const metadata: Metadata = {
   title: 'fb24m',
@@ -16,13 +17,15 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  // if (typeof window !== 'undefined') {
+  //   console.log(window.location);
+  // }
+  // console.log(window?.location);
+
   return (
-    <html lang="en">
+    <html className={`${montserrat.className}`} lang="en">
       <body>
-        <Script>
-
-
-        </Script>
+        <DataSend />
         <Provider>
           <Header />
           {children}

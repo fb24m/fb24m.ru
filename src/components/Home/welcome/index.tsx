@@ -1,19 +1,56 @@
+// "use client";
+
 import styles from './index.module.scss';
 import React from 'react';
 
-import { Label, Title1, Body1, Button, Icon, Image } from '@/ui/components';
-import { Advantage } from './Advantage';
+import { Title1, Body1 } from '@/ui/components';
 
-const cards: React.ReactElement = <>
-	<Advantage className={styles.mobile} icon="cycle" title="Оптимизация" description="Картинки сжимаются, шрифты уменьшаются - без потери качества. Это обеспечивает быструю загрузку сайтов на медленных устройствах" />
-	<Advantage className={styles.mobile} icon="frame_source" title="Исходники" description="Исходники - SCSS и Nunjucks (или любые препроцессоры на ваш выбор). Дам их бесплатно, а если надо - объясню зачем они и куда их деть" />
-</>
+// const cards: React.ReactElement = <>
+// 	<Advantage className={styles.mobile} icon="cycle" title="Оптимизация" description="Картинки сжимаются, шрифты уменьшаются - без потери качества. Это обеспечивает быструю загрузку сайтов на медленных устройствах" />
+// 	<Advantage className={styles.mobile} icon="frame_source" title="Исходники" description="Исходники - SCSS и Nunjucks (или любые препроцессоры на ваш выбор). Дам их бесплатно, а если надо - объясню зачем они и куда их деть" />
+// </>
+
+// const TypeWritter = ({ text, finishedClass }: { text: string, finishedClass?: string }) => {
+// 	const [started, setStarted] = useState(false);
+// 	const [finished, setFinished] = useState(false);
+// 	const [typedText, setTypedText] = useState('');
+
+// 	useEffect(() => {
+// 		console.log('useEffect call');
+// 		if (!started) {
+// 			let currentSymbol = 0;
+// 			let fullText = '';
+
+// 			const addSymbol = () => {
+// 				if (text.length > currentSymbol) {
+
+// 					fullText = fullText + text[currentSymbol]
+// 					currentSymbol += 1;
+
+// 					setTypedText(fullText);
+// 					setTimeout(addSymbol, 100);
+// 				}
+
+// 				if (text.length <= currentSymbol) {
+// 					setFinished(true);
+// 				}
+// 			}
+
+// 			addSymbol();
+// 			setStarted(true);
+// 		}
+
+// 		return () => { };
+// 	}, []);
+
+// 	return (<div className={finished ? finishedClass : ''} dangerouslySetInnerHTML={{ __html: typedText }}></div>);
+// }
 
 export const Welcome = (): React.ReactElement => {
 	return (
 		<article className={styles.block}>
 			<div className="container">
-				<div className={`${styles.columns}`}>
+				{/* <div className={`${styles.columns}`}>
 					<div className={`observe ${styles.column}`}>
 						<Label className={`observe ${styles.label}`}>привет</Label>
 						<Title1 className={`observe ${styles.title}`}>я fb24m</Title1>
@@ -41,7 +78,15 @@ export const Welcome = (): React.ReactElement => {
 					<Advantage icon='aod'
 						title='Об устройствах'
 						description='Сайты одинаково хорошо выглядят на всех размерах экранов - от 1920 до 360. А если адаптива в макете нет - сделаю его сам или по вашим пожеланиям' />
-				</div>
+				</div> */}
+
+
+
+				<Title1 className={styles.title}>
+					<span className="observe">привет,</span><span className="observe">это</span><span className="observe">блог</span><span className="observe">про</span><span className="observe">фронтенд</span>
+				</Title1>
+				<Body1 className={`observe ${styles.body}`}>Разработчикам и фрилансерам я расскажу о лайфхаках которые использую в разработке и фрилансе, а также о полезных инструментах, которые помогают в работе, а клиентам я покажу процесс работы изнутри, расскажу все про сайты и веб-приложения</Body1>
+				{/* <Body1 className={`observe ${styles.body}`}>Клиентам - все про сайты, приложения и веб</Body1> */}
 			</div>
 		</article>
 	);

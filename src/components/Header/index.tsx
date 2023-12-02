@@ -5,9 +5,14 @@ import React from 'react';
 import { Button, Icon, Alignment, Box } from '@/ui/components';
 
 import { Logo } from '../Logo/Logo.component';
+import { Popup } from '../Popup/Popup.component';
+import { WhatsNewPopup } from '../../popups/WhatsNew.popup';
+import { PopupBody } from '../PopupBody/PopupBody.component';
+import { PopupFooter } from '../PopupFooter/PopupFooter.component';
+import { Wordpress } from '@/services/Wordpress';
 
-export const Header = (): React.ReactElement => {
-
+export const Header = async () => {
+	const content = await Wordpress.getGlobalFileBySlug('changelog');
 	return (
 		<>
 			<header className={`${styles.wrapper} header`}>
@@ -19,17 +24,18 @@ export const Header = (): React.ReactElement => {
 						<li className={`observe ${styles.item}`}><Button as='a' appearance='Link' href="/portfolio">Портфолио</Button></li>
 						<li className={`observe ${styles.item}`}><Button as='a' appearance='Link' href="/contact">Связаться</Button></li>
 						<li className={`observe ${styles.item}`}><Button as='a' appearance='Link' href="/pet">Пет-проекты</Button></li>
-						<li className={`observe ${styles.item}`}><Button appearance='Link'>Что нового</Button></li>
+						<li className={`observe ${styles.item}`}><WhatsNewPopup trigger={<Button appearance='Link'>Что нового</Button>} /></li>
 					</ul>
 					<Box align={Alignment.end} justify={Alignment.end}>
 						<Button
 							className={`observe icon-mobile ${styles.button} ${styles.iconMobile}`}
 							icon={<Icon name='phone_enabled' />}
 							as='button'
-							appearance='Primary'><span>Связаться</span></Button>
+							appearance='Primary'>Связаться</Button>
 					</Box>
 				</div>
 			</header>
+
 
 			{/* <ContactForm bind={contactPopup} as='popup' buttonsJustify={Alignment.end}
 				buttons={<Button icon={<Icon name='cancel' />} appearance='Secondary' onClick={toggleContactPopup}>Закрыть</Button>} />

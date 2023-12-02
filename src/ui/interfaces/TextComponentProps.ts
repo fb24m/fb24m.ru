@@ -1,6 +1,6 @@
-import { HTMLAttributes } from "react"
+import { HTMLAttributes, ReactNode } from "react"
 
 export interface TextComponentProps extends HTMLAttributes<HTMLDivElement> {
-	children?: JSX.Element | string
+	children?: ReactNode
 	className?: string
 }

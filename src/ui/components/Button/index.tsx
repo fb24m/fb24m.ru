@@ -1,7 +1,8 @@
 import Link from "next/link";
 import "./index.scss";
+import { fira_code } from "@/fonts";
 
-interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+interface ButtonProps {
 	as?: 'a' | 'button'
 	type?: 'button' | 'submit' | 'reset'
 	href?: string
@@ -11,15 +12,20 @@ interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
 	className?: string
 };
 
-export const Button = ({ as, icon, className, href, children, appearance, ...props }: ButtonProps): JSX.Element => {
+export const Button = ({ as, icon, type, className, href, children, appearance, ...props }: ButtonProps): JSX.Element => {
+	const defaultProps = {
+		...props,
+		className: `button button${appearance} ${className} ${fira_code.className}`,
+	}
+
 	if (as === 'a') {
-		return <Link className={`button button${appearance} ${className}`} href={href!}>
+		return <Link {...defaultProps} href={href!}>
 			{icon ? icon : ''}
 			{children}
 		</Link>
 	}
 	else {
-		return <button {...props} className={`button button${appearance} ${className}`}>
+		return <button {...defaultProps}>
 			{icon ? icon : ''}
 			{children}
 		</button>

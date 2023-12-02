@@ -5,7 +5,7 @@ export const ReviewsBlock = (): ReactNode => {
 	return (
 		<article className="container">
 			{"<ReviewsBlock />"}
-			{[1, 2, 3].map(() => <br />)}
+			{[1, 2, 3].map((item) => <br key={item} />)}
 		</article>
 	);
 };

@@ -19,7 +19,7 @@ export const Wordpress = {
 	// Дракон
 	getMediaById: (id: number) => request<{ guid: { rendered: string } }>(`${API}/media/${id}`, `image-${id}`),
 	// 
-	getGlobalFileBySlug: (slug: string) => axios.get<IPage[]>(`${API}/global-files?slug=${slug}`),
+	getGlobalFileBySlug: (slug: string) => request<IPage[]>(`${API}/global-files?slug=${slug}`, `global-file-${slug}`),
 	getSettings: () => request<ISettings>('https://www.fb24m.ru/fb24m/wp-json', 'settings'),
 	getShortcutByName: (name: string) => request<{ acf: { link: string } }[]>(`https://www.fb24m.ru/fb24m/wp-json/wp/v2/shortcuts/?slug=${name}`, `shortcut-${name}`),
 }
