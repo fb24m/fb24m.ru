@@ -1,18 +1,19 @@
-import styles from './index.module.scss';
-import './scroll.scss';
-import React from 'react';
+// 'use client'
 
-import { Button, Icon, Alignment, Box } from '@/ui/components';
+import styles from './index.module.scss'
+import './scroll.scss'
+import React from 'react'
 
-import { Logo } from '../Logo/Logo.component';
-import { Popup } from '../Popup/Popup.component';
-import { WhatsNewPopup } from '../../popups/WhatsNew.popup';
-import { PopupBody } from '../PopupBody/PopupBody.component';
-import { PopupFooter } from '../PopupFooter/PopupFooter.component';
-import { Wordpress } from '@/services/Wordpress';
+import { Button, Icon, Alignment, Box } from '@/ui/components'
+
+import { Logo } from '../Logo/Logo.component'
+import { WhatsNewPopup } from '../../popups/WhatsNew.popup'
+import { Wordpress } from '@/services/Wordpress'
+import { ContactPopup } from '@/popups/Contact.popup'
 
 export const Header = async () => {
-	const content = await Wordpress.getGlobalFileBySlug('changelog');
+	const menu = await Wordpress.getMenu();
+
 	return (
 		<>
 			<header className={`${styles.wrapper} header`}>
@@ -20,18 +21,18 @@ export const Header = async () => {
 					<button className={styles.menuClose}><Icon name='menu' /></button>
 					<Logo />
 					<ul className={styles.list}>
-						<li className={`observe ${styles.item}`}><Button as='a' appearance='Link' href="/blog">Блог</Button></li>
-						<li className={`observe ${styles.item}`}><Button as='a' appearance='Link' href="/portfolio">Портфолио</Button></li>
-						<li className={`observe ${styles.item}`}><Button as='a' appearance='Link' href="/contact">Связаться</Button></li>
-						<li className={`observe ${styles.item}`}><Button as='a' appearance='Link' href="/pet">Пет-проекты</Button></li>
+						{menu ? menu.items.map((item) =>
+							<li key={item.ID} className={`observe ${styles.item}`}><Button as='a' appearance='Link' href={item.url}>{item.title}</Button></li>
+						) : ''}
 						<li className={`observe ${styles.item}`}><WhatsNewPopup trigger={<Button appearance='Link'>Что нового</Button>} /></li>
 					</ul>
 					<Box align={Alignment.end} justify={Alignment.end}>
-						<Button
-							className={`observe icon-mobile ${styles.button} ${styles.iconMobile}`}
-							icon={<Icon name='phone_enabled' />}
-							as='button'
-							appearance='Primary'>Связаться</Button>
+						<ContactPopup trigger={
+							<Button
+								className={`observe icon-mobile ${styles.button} ${styles.iconMobile}`}
+								icon={<Icon name='phone_enabled' />}
+								as='button'
+								appearance='Primary'>Связаться</Button>} />
 					</Box>
 				</div>
 			</header>

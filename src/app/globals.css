@@ -8,8 +8,8 @@ html {
 	--backgroundMicaColor: #11111190;
 	--foregroundColor: #fff;
 	--mainColor: #fff;
-	--hoverColor: #fff;
-	--activeColor: #fff;
+	--hoverColor: #ffffffaa;
+	--activeColor: #ffffff88;
 
 }
 
@@ -155,14 +155,18 @@ hr {
 	border-color: #ffffff60;
 }
 
-.observe {
+.animate .observe {
 	transition: transform .5s, opacity .5s;
 	opacity: 0;
-	display: inline-block;
+	/* display: flex; */
 	transform: translateY(40px);
 }
 
-.observe.visible {
+.animate .observe.visible {
 	transform: none;
 	opacity: 1;
+}
+
+strong {
+	font-weight: 600;
 }

@@ -31,7 +31,7 @@ export default function Home() {
   }, [])
 
   return (
-    <main className={styles.main}>
+    <main className={`${styles.main} animate`}>
       <Welcome />
       <About />
       <Portfolio />

@@ -5,6 +5,7 @@ import { Header } from '@/components/Header';
 import { Provider } from '@/components/Provider';
 import { montserrat } from '@/fonts';
 import { DataSend } from '@/components/DataSend/DataSend.component';
+import { Telegram } from '@/services/Telegram';
 
 export const metadata: Metadata = {
   title: 'fb24m',
@@ -16,16 +17,16 @@ export const metadata: Metadata = {
   }
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  // if (typeof window !== 'undefined') {
-  //   console.log(window.location);
-  // }
-  // console.log(window?.location);
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const sendMessage = async (message: string) => {
+    'use server'
+    await Telegram.sendMessage(message)
+  }
 
   return (
     <html className={`${montserrat.className}`} lang="en">
       <body>
-        <DataSend />
+        {/* <DataSend send={sendMessage} /> */}
         <Provider>
           <Header />
           {children}

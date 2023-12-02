@@ -18,6 +18,8 @@
 
 .title {
 	// margin-bottom: 8px;
+	display: flex;
+	flex-wrap: wrap;
 
 	span {
 		padding: 0 16px;

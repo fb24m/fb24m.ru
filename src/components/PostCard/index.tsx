@@ -17,10 +17,11 @@ export const PostCard = (props: PostProps): React.ReactElement => {
 			<Link href={`/blog/${props.slug}`} className={styles.link}><>
 				<WpImage className={styles.image} imageId={props.imageId} />
 				<div className={styles.info}>
-					<Title2 className={styles.title}>{props.title}</Title2>
+					<span className={styles.title}>{props.title}</span>
 					<div className={styles.excerpt} dangerouslySetInnerHTML={{ __html: props.excerpt }} />
 				</div>
 			</></Link>
 		</Card>
 	);
 };
+

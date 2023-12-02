@@ -3,7 +3,6 @@ import { PopupBody } from '@/components/PopupBody/PopupBody.component';
 import { PopupFooter } from '@/components/PopupFooter/PopupFooter.component';
 import { CustomPopupProps } from '@/interfaces/CustomPopup.props';
 import { Wordpress } from '@/services/Wordpress';
-import { Button } from '@/ui/components';
 
 import React from 'react'
 
