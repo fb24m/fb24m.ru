@@ -13,6 +13,10 @@
 		background-color: var(--thisForegroundColor);
 		opacity: .5;
 		border-radius: 999px;
+
+		&:hover {
+			opacity: .7;
+		}
 	}
 
 	.swiper-pagination-bullet-active {
