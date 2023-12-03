@@ -1,17 +1,8 @@
 @use '@/scss/breakpoints';
 
 .cards {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 16px;
-
-	@media (max-width: breakpoints.$tablet) {
-		grid-template-columns: repeat(2, 1fr);
-	}
-
-	@media (max-width: breakpoints.$medium) {
-		grid-template-columns: 1fr;
-	}
+	display: flex;
+	flex-direction: column;
 }
 
 .title {

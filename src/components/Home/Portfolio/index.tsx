@@ -1,22 +1,26 @@
+import './index.scss';
 import styles from './index.module.scss';
 import React from 'react';
 
-import { Label, Title2 } from '@/ui/components';
 import { Case } from './Case';
+import { Wordpress } from '@/services/Wordpress';
 
-export const Portfolio = (): React.ReactElement => {
+export const Portfolio = async () => {
+	const portfolio = await Wordpress.getPortfolio();
+
 	return (
-		<article className={`container ${styles.wrapper}`} id='portfolio'>
-			<Label className='observe'>портфолио</Label>
-			<Title2 className={`${styles.title} observe`}>Последние работы</Title2>
-			<div className={styles.cards}>
-				<Case image='home/case-1.png'
-					title='Верстка лендинга тренинга школы' />
-				<Case image='home/case-2.png'
-					title='Верстка страницы сайта инвестиций' />
-				<Case image='home/case-3.png'
-					title='Лендинг китайских заводы под ключ' />
-			</div>
+		<article className={`${styles.wrapper}`} id='portfolio'>
+
+			{portfolio.map((portfolioCase, index) =>
+				<Case key={index}
+					{...index % 2 === 0 ? { light: true } : ''}
+					images={portfolioCase.acf.gallery.split('\n')}
+					label={portfolioCase.acf.label}
+					title={portfolioCase.title.rendered}
+					content={portfolioCase.content.rendered}
+					review={portfolioCase.acf.review}
+				/>
+			)}
 		</article>
 	);
 };

@@ -1,0 +1,22 @@
+.portfolio-case {
+	.swiper-pagination {
+		display: flex;
+		gap: 16px;
+		justify-content: center;
+		padding: 20px 0;
+	}
+
+	.swiper-pagination-bullet {
+		width: 8px;
+		height: 8px;
+		display: inline-block;
+		background-color: var(--thisForegroundColor);
+		opacity: .5;
+		border-radius: 999px;
+	}
+
+	.swiper-pagination-bullet-active {
+		opacity: 1;
+	}
+
+}

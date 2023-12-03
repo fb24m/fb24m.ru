@@ -6,6 +6,7 @@ import { ISettings } from '../interfaces/ISettings'
 import { IPage } from '../interfaces/IPage'
 import { request } from '@/functions/request'
 import { IMenu } from '@/interfaces/Menu.interface'
+import { ICase } from '@/interfaces/Case.interface'
 
 export const API = 'https://www.fb24m.ru/fb24m/wp-json/wp/v2'
 
@@ -17,6 +18,9 @@ export const Wordpress = {
 	// Получение страниц
 	getPages: () => axios.get<IPage[]>(`${API}/pages`),
 	getPageBySlug: (slug: string) => axios.get<IPage[]>(`${API}/pages?slug=${slug}`),
+	// Portfolio
+	getPortfolio: () => request<ICase[]>(`${API}/portfolio`, 'portfolio'),
+	getCaseBySlug: (slug: string) => request<ICase[]>(`${API}/portfolio?slug=${slug}`, `portfolio-${slug}`),
 	// Дракон
 	getMediaById: (id: number) => request<{ guid: { rendered: string } }>(`${API}/media/${id}`, `image-${id}`),
 	// 

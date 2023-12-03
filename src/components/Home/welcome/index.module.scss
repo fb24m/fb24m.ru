@@ -5,15 +5,16 @@
 	margin-bottom: 64px;
 }
 
-.body {
-	width: 100%;
-	margin-top: 1em;
-}
-
 .columns {
-	@include grid.grid(3, $gap: 24px);
+	// @include grid.grid(3, $gap: 24px);
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
 	margin-bottom: 24px;
-	align-items: center;
+	gap: 24px;
+
+	@media (max-width: breakpoints.$tablet-l) {
+		grid-template-columns: 1fr;
+	}
 }
 
 .title {
@@ -32,23 +33,11 @@
 	}
 }
 
-.description {
-	margin-bottom: 32px;
-}
-
 .column {
 	height: 100%;
-
-	&:last-child {
-		display: flex;
-		flex-direction: column;
-		gap: 24px;
-		justify-content: flex-end;
-
-		@media (max-width: 1000px) {
-			display: none;
-		}
-	}
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
 
 	@media (max-width: 1000px) {
 		flex-basis: 50%;
@@ -57,34 +46,51 @@
 	@media(max-width: breakpoints.$tablet) {
 		flex-basis: 100%;
 	}
-
-	;
-}
-
-.advantages {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 24px;
-
-	.mobile {
-		display: none;
-
-		@media (max-width: 1000px) {
-			display: block;
-		}
-	}
-
-	@media (max-width: 940px) {
-		grid-template-columns: repeat(2, 1fr);
-	}
-
-	@media(max-width: 660px) {
-		grid-template-columns: 1fr;
-	}
-
-	;
 }
 
 .image {
 	width: 100%;
+}
+
+.skills {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 16px 24px;
+}
+
+.skill {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.contacts {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.contact {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+
+	i {
+		font-size: 32px;
+	}
+}
+
+.skillItems {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.skillItem {
+	font-weight: 500;
+
+	padding: 4px 8px;
+	background-color: #fff;
+	color: #000;
+	border-radius: 8px;
 }

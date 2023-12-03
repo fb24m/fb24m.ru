@@ -1,3 +1,66 @@
+@use "@/scss/breakpoints";
+
 .image {
-	border-radius: 4px;
+	max-width: 100%;
+	height: auto;
+	aspect-ratio: 1/1;
+	object-fit: cover;
+	box-shadow: var(--thisMediumColor) 0 0 16px;
+	border-radius: 8px;
+}
+
+.imageBlock {
+	min-width: 0;
+
+}
+
+.wrapper {
+	padding: 128px 0;
+
+	--thisForegroundColor: #fff;
+	--thisMediumColor: #333;
+	--thisBackgroundColor: #000;
+
+	&.light {
+		--thisForegroundColor: #000;
+		--thisMediumColor: #eaeaea;
+		--thisBackgroundColor: #fff;
+		background-color: #fff;
+
+		* {
+			color: var(--backgroundColor);
+		}
+	}
+
+}
+
+.review {
+	max-width: 100%;
+	border-radius: 8px;
+	box-shadow: var(--thisMediumColor) 0 0 16px;
+	margin-top: 16px;
+}
+
+.info {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.inner {
+	display: flex;
+	gap: 64px;
+	align-items: center;
+
+	@media (max-width: breakpoints.$tablet-l) {
+		flex-wrap: wrap;
+	}
+
+	&>* {
+		flex-basis: 50%;
+
+		@media (max-width: breakpoints.$tablet-l) {
+			flex-basis: 100%;
+		}
+	}
 }

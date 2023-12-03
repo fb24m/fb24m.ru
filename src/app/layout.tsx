@@ -3,9 +3,7 @@ import './globals.css'
 import { Header } from '@/components/Header';
 
 import { Provider } from '@/components/Provider';
-import { montserrat } from '@/fonts';
-import { DataSend } from '@/components/DataSend/DataSend.component';
-import { Telegram } from '@/services/Telegram';
+import { fira_code } from '@/fonts';
 
 export const metadata: Metadata = {
   title: 'fb24m',
@@ -17,14 +15,9 @@ export const metadata: Metadata = {
   }
 }
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const sendMessage = async (message: string) => {
-    'use server'
-    await Telegram.sendMessage(message)
-  }
-
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html className={`${montserrat.className}`} lang="en">
+    <html className={`${fira_code.className}`} lang="en">
       <body>
         {/* <DataSend send={sendMessage} /> */}
         <Provider>

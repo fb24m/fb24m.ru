@@ -16,7 +16,6 @@ html {
 * {
 	scroll-behavior: smooth;
 	scroll-padding-top: 90px;
-	font-family: inherit;
 }
 
 html:has(._lock-html) {
@@ -48,7 +47,6 @@ ol {
 }
 
 body {
-	/* font-family: 'Montserrat', sans-serif; */
 	background-color: var(--backgroundColor);
 	color: var(--foregroundColor);
 }
@@ -60,7 +58,6 @@ body {
 }
 
 .eval * {
-	/* font-family: 'Roboto', sans-serif; */
 	line-height: 170%;
 	hyphens: auto;
 }
@@ -157,9 +154,9 @@ hr {
 
 .animate .observe {
 	transition: transform .5s, opacity .5s;
-	opacity: 0;
+	/* opacity: 0; */
 	/* display: flex; */
-	transform: translateY(40px);
+	/* transform: translateY(40px); */
 }
 
 .animate .observe.visible {

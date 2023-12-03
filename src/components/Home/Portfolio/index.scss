@@ -1,0 +1,20 @@
+.portfolio {
+	.swiper-slide {
+		section {
+			transform: scale(60%);
+		}
+	}
+
+	.swiper-slide-next,
+	.swiper-slide-prev {
+		section {
+			transform: scale(80%);
+		}
+	}
+
+	.swiper-slide-active {
+		section {
+			transform: scale(100%);
+		}
+	}
+}
