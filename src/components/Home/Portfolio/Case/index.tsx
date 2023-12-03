@@ -41,7 +41,9 @@ export const Case = ({ title, images, label, review, light }: CaseProps) => {
 						<Swiper modules={[EffectFlip, Pagination, Autoplay]} effect="flip" pagination autoplay>
 							{images?.map((image) =>
 								<SwiperSlide key={image}>
-									<Image className={styles.image} src={image} alt="" width={600} height={600} />
+									<picture>
+										<img className={styles.image} src={image} alt="" />
+									</picture>
 								</SwiperSlide>)}
 						</Swiper>
 					</div>
