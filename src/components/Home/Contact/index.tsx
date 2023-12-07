@@ -2,7 +2,8 @@ import styles from './index.module.scss';
 import React from 'react';
 import { ContactForm } from '@/components/ContactForm';
 
-import { Card, Alignment, Image, MarkedList, Title3 } from '@/ui/components/';
+import { Card, MarkedList, Title3 } from '@/ui/components/';
+import Image from 'next/image';
 
 export const Contact = (): React.ReactElement => {
 	return (
@@ -29,7 +30,7 @@ export const Contact = (): React.ReactElement => {
 				<ContactForm />
 			</Card>
 			<div className={styles.block}>
-				<Image src="home/contact.png" alt="" />
+				<Image width={380} height={380} src="/img/home/contact.png" alt="" />
 			</div>
 		</article>
 	);

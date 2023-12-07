@@ -9,10 +9,11 @@
 }
 
 .container {
-	display: flex;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
 
 	@media (max-width: breakpoints.$tablet) {
-		flex-wrap: wrap-reverse;
+		grid-template-columns: 1fr;
 	}
 }
 
@@ -27,7 +28,8 @@
 }
 
 .subblock:nth-child(1) {
-	flex-basis: 792px;
+	grid-column-start: 1;
+	grid-column-end: 3;
 }
 
 .image {

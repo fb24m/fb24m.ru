@@ -1,8 +1,9 @@
 import styles from './index.module.scss';
 import React from 'react';
 
-import { Title2, Label, Button, Icon, Image, Box } from '@/ui/components';
+import { Title2, Label, Button, Icon, Box } from '@/ui/components';
 import { AboutCard } from './AboutCard';
+import Image from 'next/image';
 
 export const About = (): React.ReactElement => (
 	<article className={styles.wrapper}>
@@ -22,7 +23,7 @@ export const About = (): React.ReactElement => (
 				</Box>
 			</div>
 			<div className={styles.subblock}>
-				<Image className={styles.image} src="home/about-image.png" alt="" />
+				<Image className={styles.image} width={380} height={380} src="/img/home/about-image.png" alt="" />
 			</div>
 		</div>
 	</article>
