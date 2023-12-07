@@ -2,10 +2,9 @@
 
 import styles from './index.module.scss';
 import './index.scss'
-import React, { HTMLAttributes, ReactNode, useEffect, useState } from 'react';
+import React, { HTMLAttributes, useState } from 'react';
 
 import { Title2, Title4 } from '@/ui/components';
-import Image from 'next/image';
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 
@@ -25,15 +24,7 @@ interface CaseProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const Case = ({ title, images, label, review, light }: CaseProps) => {
-	const [loaded, setLoaded] = useState(false);
-
-	useEffect(() => {
-		if (loaded === false) {
-			setLoaded(true)
-		}
-	}, []);
-
-	if (loaded)
+	if (images)
 		return (
 			<section className={`portfolio-case ${light ? styles.light : ''} ${styles.wrapper}`}>
 				<div className={`container ${styles.inner}`}>
@@ -41,7 +32,9 @@ export const Case = ({ title, images, label, review, light }: CaseProps) => {
 						<Swiper modules={[EffectFlip, Pagination, Autoplay]} effect="flip" pagination autoplay>
 							{images?.map((image) =>
 								<SwiperSlide key={image}>
-									<Image priority src={image} className={styles.image} alt="" width={1000} height={1000} />
+									<picture>
+										<img src={image ? image : ''} className={`${styles.image}`} alt="" width={1000} height={1000} />
+									</picture>
 								</SwiperSlide>)}
 						</Swiper>
 					</div>
