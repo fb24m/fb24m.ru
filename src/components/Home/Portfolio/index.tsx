@@ -5,7 +5,7 @@ import React from 'react';
 import { Case } from './Case';
 import { Wordpress } from '@/services/Wordpress';
 
-export const Portfolio = async () => {
+const Portfolio = async () => {
 	const portfolio = await Wordpress.getPortfolio();
 	console.log('portfolio render')
 
@@ -25,3 +25,5 @@ export const Portfolio = async () => {
 		</article>
 	);
 };
+
+export default Portfolio

@@ -5,7 +5,7 @@ import { ContactForm } from '@/components/ContactForm';
 import { Card, MarkedList, Title3 } from '@/ui/components/';
 import Image from 'next/image';
 
-export const Contact = (): React.ReactElement => {
+const Contact = (): React.ReactElement => {
 	return (
 		<article className={`container ${styles.container}`} id='contact'>
 			<MarkedList>
@@ -33,5 +33,7 @@ export const Contact = (): React.ReactElement => {
 				<Image width={380} height={380} src="/img/home/contact.png" alt="" />
 			</div>
 		</article>
-	);
-};
+	)
+}
+
+export default Contact

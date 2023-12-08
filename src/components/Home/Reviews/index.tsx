@@ -1,7 +1,6 @@
-import styles from './index.module.scss';
 import { ReactNode } from 'react';
 
-export const ReviewsBlock = (): ReactNode => {
+const ReviewsBlock = (): ReactNode => {
 	return (
 		<article className="container">
 			{"<ReviewsBlock />"}
@@ -9,3 +8,5 @@ export const ReviewsBlock = (): ReactNode => {
 		</article>
 	);
 };
+
+export default ReviewsBlock

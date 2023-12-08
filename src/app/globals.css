@@ -154,18 +154,6 @@ hr {
 	border-color: #ffffff60;
 }
 
-.animate .observe {
-	transition: transform .5s, opacity .5s;
-	/* opacity: 0; */
-	/* display: flex; */
-	/* transform: translateY(40px); */
-}
-
-.animate .observe.visible {
-	transform: none;
-	opacity: 1;
-}
-
 strong {
 	font-weight: 600;
 }

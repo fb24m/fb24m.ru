@@ -5,7 +5,7 @@ import { Title2, Label, Button, Icon, Box } from '@/ui/components';
 import { AboutCard } from './AboutCard';
 import Image from 'next/image';
 
-export const About = (): React.ReactElement => (
+const About = (): React.ReactElement => (
 	<article className={styles.wrapper}>
 		<div className={`${styles.container} container`}>
 			<div className={styles.subblock}>
@@ -27,4 +27,6 @@ export const About = (): React.ReactElement => (
 			</div>
 		</div>
 	</article>
-);
+)
+
+export default About

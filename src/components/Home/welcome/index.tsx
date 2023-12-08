@@ -2,14 +2,14 @@ import styles from './index.module.scss';
 import React from 'react';
 
 import { Title1, Body1, Title2 } from '@/ui/components';
-import { FigmaIcon } from '../../../ui/icons/Figma.component';
+import { FigmaIcon } from '@/ui/icons/Figma.component';
 import { ReactIcon } from '@/ui/icons/React.component';
 import { NextIcon } from '@/ui/icons/Next.component';
 import { ViteIcon } from '@/ui/icons/Vite.component';
 import { WebPackIcon } from '@/ui/icons/WebPack.component';
-import { Icon } from '../../../ui/components/Icon/index';
+import { Icon } from '@/ui/components/Icon/index';
 
-export const Welcome = (): React.ReactElement => {
+const Welcome = (): React.ReactElement => {
 	return (
 		<article className={styles.block}>
 			<div className="container">
@@ -62,62 +62,6 @@ export const Welcome = (): React.ReactElement => {
 				</div>
 			</div>
 		</article>
-	);
-};
-
-/* <div className={`${styles.columns}`}>
-					<div className={`observe ${styles.column}`}>
-						<Label className={`observe ${styles.label}`}>привет</Label>
-						<Title1 className={`observe ${styles.title}`}>я fb24m</Title1>
-						<Body1 className={`observe ${styles.description}`}>Более 3-ех лет опыта фронтенд-разработки, за это время разработал десятки сайтов, и сотни компонентов, многие из которых работают и приносят доход</Body1>
-						<Button className={`observe ${styles.description}`}
-							as='a' href='#portfolio'
-							icon={<Icon name='laptop' />}
-							appearance='Primary'>В портфолио</Button>
-					</div>
-					<div className={styles.column}>
-						<Image src="home/welcome-image.png" alt="" className={`observe ${styles.image}`} />
-					</div>
-					<div className={styles.column} id='cards'>
-						{cards}{/* <div className={`${styles.columns}`}>
-					<div className={`observe ${styles.column}`}>
-						<Label className={`observe ${styles.label}`}>привет</Label>
-						<Title1 className={`observe ${styles.title}`}>я fb24m</Title1>
-						<Body1 className={`observe ${styles.description}`}>Более 3-ех лет опыта фронтенд-разработки, за это время разработал десятки сайтов, и сотни компонентов, многие из которых работают и приносят доход</Body1>
-						<Button className={`observe ${styles.description}`}
-							as='a' href='#portfolio'
-							icon={<Icon name='laptop' />}
-							appearance='Primary'>В портфолио</Button>
-					</div>
-					<div className={styles.column}>
-						<Image src="home/welcome-image.png" alt="" className={`observe ${styles.image}`} />
-					</div>
-					<div className={styles.column} id='cards'>
-						{cards}
-					</div>
-				</div>
-				<div className={styles.advantages}>
-					{cards}
-					<Advantage icon='mitre'
-						title='Библиотеки'
-						description='Работаю с React, а также с его экосистемой - React Query, Redux, React Router и тп., а также с другими JavaScript библиотеками - Swiper, IMask и другие' />
-					<Advantage icon='data_object'
-						title='JavaScript'
-						description='Мелкий функционал пишу сам - не подключаю огромную библиотеку ради маленького блока, чтобы сэкономить 10 минут жизни' />
-					<Advantage icon='aod'
-						title='Об устройствах'
-						description='Сайты одинаково хорошо выглядят на всех размерах экранов - от 1920 до 360. А если адаптива в макете нет - сделаю его сам или по вашим пожеланиям' />
-				</div> 
-				</div>
-				<div className={styles.advantages}>
-					{cards}
-					<Advantage icon='mitre'
-						title='Библиотеки'
-						description='Работаю с React, а также с его экосистемой - React Query, Redux, React Router и тп., а также с другими JavaScript библиотеками - Swiper, IMask и другие' />
-					<Advantage icon='data_object'
-						title='JavaScript'
-						description='Мелкий функционал пишу сам - не подключаю огромную библиотеку ради маленького блока, чтобы сэкономить 10 минут жизни' />
-					<Advantage icon='aod'
-						title='Об устройствах'
-						description='Сайты одинаково хорошо выглядят на всех размерах экранов - от 1920 до 360. А если адаптива в макете нет - сделаю его сам или по вашим пожеланиям' />
-				</div> */
+	)
+}
+export default Welcome
