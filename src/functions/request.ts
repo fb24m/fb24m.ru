@@ -1,10 +1,21 @@
-export const request = async <T,>(path: string, tag: string, headers?: HeadersInit) => {
-	const response = await fetch(path, {
-		next: { tags: [tag], revalidate: 1 },
-	});
-	const posts: T = await response.json();
+let totalRequsts: number = 0;
 
-	return posts;
+export const request = async <T,>(path: string, tag: string) => {
+	totalRequsts++
+	console.log(`[<Request> log] Request to ${path}\n[<Request> log] Total requests: ${totalRequsts}`)
+
+
+	try {
+		const response = await fetch(path, {
+			next: { tags: [tag], revalidate: 3600 },
+		});
+		const posts: T = await response.json();
+
+		return posts;
+	}
+	catch {
+		console.log(`[<Request> Error] ${fetch(path)}`)
+	}
 }
 
 // headers: {

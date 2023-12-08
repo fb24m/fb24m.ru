@@ -17,25 +17,25 @@
 .wrapper {
 	padding: 128px 0;
 
-	--thisForegroundColor: #fff;
-	--thisMediumColor: #333;
-	--thisBackgroundColor: #000;
+
+	--thisForegroundColor: #333;
+	--thisMediumColor: #eaeaea;
+	--thisBackgroundColor: #fff;
 
 	&:nth-child(even) {
+		--thisForegroundColor: #fff;
+		--thisMediumColor: #333;
+		--thisBackgroundColor: #111;
+
 		.inner {
 			flex-direction: row-reverse;
 		}
 	}
 
-	&.light {
-		--thisForegroundColor: #000;
-		--thisMediumColor: #eaeaea;
-		--thisBackgroundColor: #fff;
-		background-color: #fff;
+	background-color: var(--thisBackgroundColor);
 
-		* {
-			color: var(--backgroundColor);
-		}
+	* {
+		color: var(--thisForegroundColor);
 	}
 
 }

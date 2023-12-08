@@ -10,6 +10,8 @@ export interface WpImagemageProps {
 export const WpImage = async ({ imageId, className, ...props }: WpImagemageProps) => {
 	const image = await Wordpress.getMediaById(imageId);
 
+	// console.log('image render')
+
 	return <>
 		{image?.guid?.rendered ? <Image className={`${styles.image} ${className}`} {...props} width={1000} height={1000} src={image?.guid?.rendered} alt="" /> : <div className={styles.placeholer}></div>}
 	</>

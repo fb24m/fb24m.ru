@@ -4,14 +4,19 @@ import { Header } from '@/components/Header'
 
 import { Provider } from '@/components/Provider'
 import { fira_code } from '@/fonts'
+import { Wordpress } from '@/services/Wordpress'
 
-export const metadata: Metadata = {
-  title: 'fb24m',
-  description: 'Блог о веб-разработке и фронтенде',
-  openGraph: {
-    title: 'fb24m',
-    description: 'Блог о веб-разработке и фронтенде',
-    images: ['https://fb24m.ru/.png']
+export const generateMetadata = async (): Promise<Metadata> => {
+  const settings = await Wordpress.getSettings()
+
+  return {
+    title: settings?.name,
+    description: settings?.description,
+    openGraph: {
+      title: settings?.name,
+      description: settings?.description,
+      images: [`${settings?.site_icon_url}`]
+    }
   }
 }
 
