@@ -1,5 +1,3 @@
-import axios from 'axios'
-
 import { IPost } from '../interfaces/IPost'
 import { IPet } from '../interfaces/IPet'
 import { ISettings } from '../interfaces/ISettings'
@@ -11,13 +9,13 @@ import { ICase } from '@/interfaces/Case.interface'
 export const API = 'https://www.fb24m.ru/fb24m/wp-json/wp/v2'
 
 export const Wordpress = {
-	getPetProjects: () => axios.get<IPet[]>(`${API}/pet`),
+	getPetProjects: () => request<IPet[]>(`${API}/pet`, 'pet'),
 	// Получение постов
 	getPosts: () => request<IPost[]>(`${API}/posts`, 'posts'),
 	getPostBySlug: (slug: string) => request<IPost[]>(`${API}/posts?slug=${slug}`, `post-${slug}`),
 	// Получение страниц
-	getPages: () => axios.get<IPage[]>(`${API}/pages`),
-	getPageBySlug: (slug: string) => axios.get<IPage[]>(`${API}/pages?slug=${slug}`),
+	getPages: () => request<IPage[]>(`${API}/pages`, 'pages'),
+	getPageBySlug: (slug: string) => request<IPage[]>(`${API}/pages?slug=${slug}`, `page-${slug}`),
 	// Portfolio
 	getPortfolio: () => request<ICase[]>(`${API}/portfolio`, 'portfolio'),
 	getCaseBySlug: (slug: string) => request<ICase[]>(`${API}/portfolio?slug=${slug}`, `portfolio-${slug}`),
