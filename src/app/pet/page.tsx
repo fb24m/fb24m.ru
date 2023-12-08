@@ -16,7 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Pet() {
-	const { data } = await Wordpress.getPetProjects();
+	const data = await Wordpress.getPetProjects();
 
 	if (data) return (
 		<Box direction="column" className="container">
