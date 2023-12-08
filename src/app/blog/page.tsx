@@ -1,15 +1,16 @@
 // 'use client';
 
-import styles from './index.module.scss';
-import React from 'react';
+import styles from './index.module.scss'
+import React from 'react'
 
-import { Wordpress } from '../\../services/Wordpress';
+import { Wordpress } from '../../services/Wordpress'
+import dynamic from 'next/dynamic'
 
-import { PostCard } from '@/components/PostCard';
+const PostCard = dynamic(() => import('@/components/PostCard'))
 
 export default async function Blog() {
 
-	const posts = await Wordpress.getPosts();
+	const posts = await Wordpress.getPosts()
 
 	if (!posts) return <>help@fb24m.ru</>
 	if (posts)
@@ -29,4 +30,4 @@ export default async function Blog() {
 			</div>
 		);
 	else return <></>
-};
+}

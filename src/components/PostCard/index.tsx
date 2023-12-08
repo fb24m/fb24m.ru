@@ -1,6 +1,6 @@
 import styles from './index.module.scss';
 import React from 'react';
-import { Title2, Card } from '@/ui/components';
+import { Card } from '@/ui/components';
 import Link from 'next/link';
 import { WpImage } from '../WpImage/WpImage.component';
 
@@ -11,7 +11,7 @@ interface PostProps {
 	imageId: number
 }
 
-export const PostCard = (props: PostProps): React.ReactElement => {
+const PostCard = (props: PostProps): React.ReactElement => {
 	return (
 		<Card className={styles.card} as="section">
 			<Link href={`/blog/${props.slug}`} className={styles.link}><>
@@ -22,6 +22,7 @@ export const PostCard = (props: PostProps): React.ReactElement => {
 				</div>
 			</></Link>
 		</Card>
-	);
-};
+	)
+}
 
+export default PostCard

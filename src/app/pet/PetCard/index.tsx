@@ -10,7 +10,7 @@ export interface PetCardProps {
 	icon: string
 }
 
-export const PetCard = (props: PetCardProps): ReactNode => (
+const PetCard = (props: PetCardProps): ReactNode => (
 	<a href={props.url}>
 		<Card className={styles.wrapper} size="normal">
 			<Icon name={props.icon} size='big' />
@@ -21,3 +21,5 @@ export const PetCard = (props: PetCardProps): ReactNode => (
 		</Card>
 	</a>
 );
+
+export default PetCard
