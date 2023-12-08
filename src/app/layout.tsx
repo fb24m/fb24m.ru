@@ -4,6 +4,8 @@ import { Header } from '@/components/Header'
 
 import { fira_code } from '@/fonts'
 import { Wordpress } from '@/services/Wordpress'
+import { Suspense } from 'react'
+import { Spinner } from '@/ui/components/Spinner/Spinner.component'
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const settings = await Wordpress.getSettings()
@@ -23,8 +25,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html className={`${fira_code.className}`} lang="en">
       <body>
-        <Header />
-        {children}
+        <Suspense fallback={<Spinner />}>
+          <Header />
+          {children}
+        </Suspense>
       </body>
     </html>
   )
