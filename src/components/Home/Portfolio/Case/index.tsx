@@ -2,51 +2,43 @@
 
 import styles from './index.module.scss';
 import './index.scss'
-import React, { HTMLAttributes, useState } from 'react';
+import React, { HTMLAttributes, useEffect, useState } from 'react';
 
 import { Title2, Title4 } from '@/ui/components';
-
-import { Swiper, SwiperSlide } from 'swiper/react'
 
 import 'swiper/css'
 import 'swiper/css/effect-flip'
 
-import { Autoplay, EffectFlip, Pagination } from 'swiper/modules';
 import { WpImage } from '../../../WpImage/WpImage.component';
+import Image from 'next/image';
 
 interface CaseProps extends HTMLAttributes<HTMLDivElement> {
 	title: string
 	content: string
 	light?: boolean
 	label: string
-	images?: string[]
+	image?: string
 	review?: number
 }
 
-export const Case = ({ title, images, label, review, light }: CaseProps) => {
-	if (images)
-		return (
-			<section className={`portfolio-case ${light ? styles.light : ''} ${styles.wrapper}`}>
-				<div className={`container ${styles.inner}`}>
-					<div className={styles.imageBlock}>
-						<Swiper modules={[EffectFlip, Pagination, Autoplay]} effect="flip" pagination autoplay>
-							{images?.map((image) =>
-								<SwiperSlide key={image}>
-									<picture>
-										<img src={image ? image : ''} className={`${styles.image}`} alt="" width={1000} height={1000} />
-									</picture>
-								</SwiperSlide>)}
-						</Swiper>
-					</div>
-					<div className={styles.info}>
-						<Title4 className="observe">{label}</Title4>
-						<Title2 className="observe">{title}</Title2>
-						{review ? <>
-							<Title4 className="observe">Отзыв заказчика:</Title4>
-							<WpImage className={styles.review} imageId={review} />
-						</> : ''}
-					</div>
+export const Case = ({ title, image, label, review, light }: CaseProps) => {
+
+	return (
+		<section className={`portfolio-case ${light ? styles.light : ''} ${styles.wrapper}`}>
+			<div className={`container ${styles.inner}`}>
+				<div className={styles.imageBlock}>
+					<Image loading="lazy" src={image ? image : ''} className={`${styles.image}`} alt="" width={600} height={600} />
 				</div>
-			</section >
-		);
+
+				<div className={styles.info}>
+					<Title4 className="observe">{label}</Title4>
+					<Title2 className="observe">{title}</Title2>
+					{review ? <>
+						<Title4 className="observe">Отзыв заказчика:</Title4>
+						<WpImage className={styles.review} imageId={review} />
+					</> : ''}
+				</div>
+			</div>
+		</section >
+	);
 };

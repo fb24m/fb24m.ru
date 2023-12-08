@@ -14,7 +14,7 @@ export const Portfolio = async () => {
 			{portfolio.map((portfolioCase, index) =>
 				<Case key={index}
 					{...index % 2 === 0 ? { light: true } : ''}
-					images={portfolioCase.acf.gallery.split('\n')}
+					image={portfolioCase.acf.gallery.split('\n')[0]}
 					label={portfolioCase.acf.label}
 					title={portfolioCase.title.rendered}
 					content={portfolioCase.content.rendered}

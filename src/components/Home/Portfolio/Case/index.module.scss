@@ -21,6 +21,12 @@
 	--thisMediumColor: #333;
 	--thisBackgroundColor: #000;
 
+	&:nth-child(even) {
+		.inner {
+			flex-direction: row-reverse;
+		}
+	}
+
 	&.light {
 		--thisForegroundColor: #000;
 		--thisMediumColor: #eaeaea;
