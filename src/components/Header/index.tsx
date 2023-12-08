@@ -17,7 +17,7 @@ export const Header = async () => {
 			<header className={`${styles.wrapper} header`}>
 				<div className={`${styles.container} container`}>
 					<Logo />
-					<Menu items={menu.items} />
+					<Menu items={menu?.items} />
 					<Box align={Alignment.end} justify={Alignment.end}>
 						<ContactPopup trigger={
 							<Button

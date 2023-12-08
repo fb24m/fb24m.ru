@@ -16,7 +16,7 @@ export const Menu = (props: MenuProps) => {
 				<Button appearance="Primary"><Icon name="menu" /></Button>
 			</div>
 			<ul className={`${styles.list} ${className}`}>
-				{props.items.map((item) =>
+				{props.items?.map((item) =>
 					<li key={item.ID} className={`observe ${styles.item}`}>
 						<Button as='a' appearance='Link' href={item.url}>{item.title}</Button>
 					</li>

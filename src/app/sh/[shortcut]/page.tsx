@@ -9,7 +9,7 @@ interface PageProps {
 export default async function Shortcut(props: PageProps) {
 	const data = await Wordpress.getShortcutByName(props.params.shortcut);
 
-	if (data[0]) {
+	if (data) {
 		redirect(data[0].acf.link);
 	}
 	else {

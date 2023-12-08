@@ -9,7 +9,7 @@ export async function generateMetadata(): Promise<Metadata> {
 	const settings = await Wordpress.getSettings();
 
 	return {
-		title: `Пет-проекты - ${settings.name}`
+		title: `Пет-проекты - ${settings?.name}`
 	}
 }
 

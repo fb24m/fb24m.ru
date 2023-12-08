@@ -1,3 +1,3 @@
 export interface MenuProps {
-	items: { ID: number, url: string, title: string }[]
+	items: { ID: number, url: string, title: string }[] | undefined
 }
