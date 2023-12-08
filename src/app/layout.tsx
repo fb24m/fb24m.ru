@@ -24,7 +24,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html className={`${fira_code.className}`} lang="en">
       <body>
-        {/* <DataSend send={sendMessage} /> */}
         <Provider>
           <Header />
           {children}
