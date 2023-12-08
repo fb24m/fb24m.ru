@@ -7,7 +7,7 @@ export const request = async <T,>(path: string, tag: string) => {
 
 	try {
 		const response = await fetch(path, {
-			next: { tags: [tag], revalidate: 3600 },
+			next: { tags: [tag] }, cache: 'no-cache'
 		});
 		const posts: T = await response.json();
 
