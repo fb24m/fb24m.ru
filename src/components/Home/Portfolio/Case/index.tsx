@@ -1,6 +1,6 @@
 import styles from './index.module.scss';
 import './index.scss'
-import React, { HTMLAttributes } from 'react';
+import { HTMLAttributes } from 'react';
 
 import { Title2, Title4 } from '@/ui/components';
 
@@ -8,7 +8,6 @@ import 'swiper/css'
 import 'swiper/css/effect-flip'
 
 import { WpImage } from '../../../WpImage/WpImage.component';
-import Image from 'next/image';
 
 interface CaseProps extends HTMLAttributes<HTMLDivElement> {
 	title: string

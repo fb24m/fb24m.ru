@@ -1,8 +1,4 @@
-// 'use client'
-
-import React from 'react';
-
-import { Alignment, Box, Icon, Input } from '@/ui/components';
+import { Box, Icon, Input } from '@/ui/components';
 
 
 export const ContactForm = () => {

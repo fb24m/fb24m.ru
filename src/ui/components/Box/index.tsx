@@ -1,5 +1,5 @@
 import styles from './index.module.scss';
-import React, { HTMLAttributes } from 'react';
+import { HTMLAttributes } from 'react';
 
 export enum Alignment {
 	start = 'start',

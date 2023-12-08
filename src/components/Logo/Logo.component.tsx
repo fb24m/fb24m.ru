@@ -1,6 +1,4 @@
-
 import Link from 'next/link'
-import React from 'react'
 
 import styles from './Logo.module.scss'
 import { Wordpress } from '@/services/Wordpress'
@@ -11,7 +9,7 @@ const exists = (str: string | undefined): string => {
 	else return ''
 }
 
-export const Logo = async () => {
+const Logo = async () => {
 	const settings = await Wordpress.getSettings()
 
 	return (
@@ -23,3 +21,5 @@ export const Logo = async () => {
 		</div>
 	)
 }
+
+export default Logo

@@ -1,5 +1,4 @@
 import { Wordpress } from '../../services/Wordpress';
-import React from 'react';
 import { Metadata } from 'next';
 
 import { Body1, Box, Title2 } from '@/ui/components';

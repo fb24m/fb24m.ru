@@ -1,11 +1,10 @@
 import styles from './index.module.scss';
-import React from 'react';
 
 import { Title2, Label, Button, Icon, Box } from '@/ui/components';
 import { AboutCard } from './AboutCard';
 import Image from 'next/image';
 
-const About = (): React.ReactElement => (
+const About = () => (
 	<article className={styles.wrapper}>
 		<div className={`${styles.container} container`}>
 			<div className={styles.subblock}>

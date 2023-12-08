@@ -22,7 +22,7 @@ const SendButton = () => {
 	)
 }
 
-export const ContactPopup = (props: CustomPopupProps) => {
+const ContactPopup = (props: CustomPopupProps) => {
 	return (<form action={order}>
 		<Popup trigger={props.trigger}>
 			<PopupBody>
@@ -36,3 +36,5 @@ export const ContactPopup = (props: CustomPopupProps) => {
 	</form>
 	)
 }
+
+export default ContactPopup

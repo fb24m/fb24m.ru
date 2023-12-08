@@ -1,7 +1,7 @@
+import { ReactNode } from 'react';
 import styles from './index.module.scss';
-import React from 'react';
 
-export const MarkedList = (props: { children?: React.ReactElement[] | string }): React.ReactElement => {
+export const MarkedList = (props: { children?: ReactNode[] | string }) => {
 	return (
 		<ul className={styles.markedList}>
 			{props.children}

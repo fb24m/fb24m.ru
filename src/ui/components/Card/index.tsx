@@ -1,5 +1,4 @@
 import styles from './index.module.scss';
-import React from 'react';
 
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
 	size?: 'small' | 'normal' | 'big',

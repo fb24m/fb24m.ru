@@ -1,4 +1,3 @@
-import React from 'react'
 import { PopupBodyProps } from './PopupBody.props'
 
 import styles from './PopupBody.module.scss'

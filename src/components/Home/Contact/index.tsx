@@ -1,11 +1,10 @@
 import styles from './index.module.scss';
-import React from 'react';
 import { ContactForm } from '@/components/ContactForm';
 
 import { Card, MarkedList, Title3 } from '@/ui/components/';
 import Image from 'next/image';
 
-const Contact = (): React.ReactElement => {
+const Contact = () => {
 	return (
 		<article className={`container ${styles.container}`} id='contact'>
 			<MarkedList>

@@ -1,6 +1,5 @@
 import './index.scss';
 import styles from './index.module.scss';
-import React from 'react';
 
 import { Case } from './Case';
 import { Wordpress } from '@/services/Wordpress';

@@ -1,12 +1,9 @@
-// 'use client';
-
 import styles from './index.module.scss'
-import React from 'react'
 
 import { Wordpress } from '../../services/Wordpress'
 import dynamic from 'next/dynamic'
 
-const PostCard = dynamic(() => import('@/components/PostCard'))
+const PostCard = dynamic(() => import('@/components/Blog/PostCard'))
 
 export default async function Blog() {
 

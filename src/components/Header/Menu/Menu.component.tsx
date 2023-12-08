@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import { useState } from 'react'
 import styles from './Menu.module.scss'
 import { MenuProps } from './Menu.props'
 import { Button, Icon } from '@/ui/components'

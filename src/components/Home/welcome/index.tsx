@@ -1,5 +1,4 @@
 import styles from './index.module.scss';
-import React from 'react';
 
 import { Title1, Body1, Title2 } from '@/ui/components';
 import { FigmaIcon } from '@/ui/icons/Figma.component';
@@ -9,7 +8,7 @@ import { ViteIcon } from '@/ui/icons/Vite.component';
 import { WebPackIcon } from '@/ui/icons/WebPack.component';
 import { Icon } from '@/ui/components/Icon/index';
 
-const Welcome = (): React.ReactElement => {
+const Welcome = () => {
 	return (
 		<article className={styles.block}>
 			<div className="container">

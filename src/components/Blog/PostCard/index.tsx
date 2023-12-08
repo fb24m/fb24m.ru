@@ -1,8 +1,7 @@
 import styles from './index.module.scss';
-import React from 'react';
 import { Card } from '@/ui/components';
 import Link from 'next/link';
-import { WpImage } from '../WpImage/WpImage.component';
+import { WpImage } from '../../WpImage/WpImage.component';
 
 interface PostProps {
 	slug: string

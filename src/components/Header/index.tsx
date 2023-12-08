@@ -1,16 +1,17 @@
 import styles from './index.module.scss'
 import './scroll.scss'
-import React from 'react'
+import dynamic from 'next/dynamic'
 
 import { Button, Icon, Alignment, Box } from '@/ui/components'
 
-import { Logo } from '../Logo/Logo.component'
 import { Wordpress } from '@/services/Wordpress'
-import { ContactPopup } from '@/popups/Contact.popup'
 import { Menu } from './Menu/Menu.component'
 
+const Logo = dynamic(() => import('@/components/Logo/Logo.component'))
+const ContactPopup = dynamic(() => import('@/popups/Contact.popup'))
+
 export const Header = async () => {
-	const menu = await Wordpress.getMenu();
+	const menu = await Wordpress.getMenu()
 
 	return (
 		<>
@@ -29,5 +30,5 @@ export const Header = async () => {
 				</div>
 			</header>
 		</>
-	);
-};
+	)
+}

@@ -1,5 +1,4 @@
 import styles from './index.module.scss';
-import React from 'react';
 
 interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
 	icon: React.ReactElement

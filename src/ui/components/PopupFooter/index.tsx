@@ -1,7 +1,7 @@
+import { HTMLAttributes } from 'react';
 import styles from './index.module.scss';
-import React from 'react';
 
-export const PopupFooter = ({ children, className, ...props }: React.HTMLAttributes<HTMLDivElement>): React.ReactElement => {
+export const PopupFooter = ({ children, className, ...props }: HTMLAttributes<HTMLDivElement>) => {
 	return (
 		<div className={`${styles.popupFooter}`} {...props}>{children}</div>
 	);
