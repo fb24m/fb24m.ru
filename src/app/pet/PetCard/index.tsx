@@ -1,7 +1,7 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react'
 
-import styles from './index.module.scss';
-import { Body1, Card, Icon, Title4 } from '@/ui/components';
+import styles from './index.module.scss'
+import { Body1, Card, Icon, Title4 } from '@/ui/components'
 
 export interface PetCardProps {
 	title: string
@@ -20,6 +20,6 @@ const PetCard = (props: PetCardProps): ReactNode => (
 			</div>
 		</Card>
 	</a>
-);
+)
 
 export default PetCard

@@ -1,22 +1,25 @@
-import styles from './index.module.scss';
+import styles from './index.module.scss'
+import { Icon } from '../Icon'
+import { exists } from '@/functions/exists'
+import type { HTMLAttributes, ReactNode } from 'react'
 
-interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
-	icon: React.ReactElement
+interface InputProps extends HTMLAttributes<HTMLInputElement> {
+	icon: string
 	placeholder: string
 	className?: string
 	autoComplete?: string
-	register?: Function
+	register?: () => void
 	name: string
 	required?: boolean
 }
 
-export const Input = ({ className, icon, placeholder, register, ...props }: InputProps): React.ReactElement => {
+export const Input = ({ className, icon, placeholder, register, ...props }: InputProps): ReactNode => {
 	return (
 		<div className={`${className} ${styles.wrapper}`}>
-			{icon ? icon : ''}
+			<Icon name={exists(icon)} />
 			<input className={styles.input} {...props} placeholder=' ' {...props} />
 
 			<span className={styles.label}>{placeholder}</span>
 		</div>
-	);
-};
+	)
+}

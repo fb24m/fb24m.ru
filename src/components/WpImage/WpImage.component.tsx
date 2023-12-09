@@ -1,18 +1,18 @@
-import { Wordpress } from "@/services/Wordpress"
-import Image from "next/image";
-import styles from './WpImage.module.scss';
+'use server'
+
+import { Wordpress } from '@/services/Wordpress'
+import Image from 'next/image'
+import styles from './WpImage.module.scss'
+import { exists } from '@/functions/exists'
+import type { ReactElement } from 'react'
 
 export interface WpImagemageProps {
 	imageId: number
 	className?: string
 }
 
-export const WpImage = async ({ imageId, className, ...props }: WpImagemageProps) => {
-	const image = await Wordpress.getMediaById(imageId);
+export const WpImage = async ({ imageId, className, ...props }: WpImagemageProps): Promise<ReactElement> => {
+	const image = await Wordpress.getMediaById(imageId)
 
-	// console.log('image render')
-
-	return <>
-		{image?.guid?.rendered ? <Image className={`${styles.image} ${className}`} {...props} width={1000} height={1000} src={image?.guid?.rendered} alt="" /> : <div className={styles.placeholer}></div>}
-	</>
+	return <Image className={`${styles.image} ${className}`} {...props} width={1000} height={1000} src={exists(image.guid.rendered)} alt="" />
 }

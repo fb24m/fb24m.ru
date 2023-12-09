@@ -1,13 +1,11 @@
-import styles from './index.module.scss';
+import styles from './index.module.scss'
 import './index.scss'
-import { HTMLAttributes } from 'react';
+import type { HTMLAttributes, ReactElement } from 'react'
 
-import { Title2, Title4 } from '@/ui/components';
+import { Title2, Title4 } from '@/ui/components'
 
-import 'swiper/css'
-import 'swiper/css/effect-flip'
-
-import { WpImage } from '../../../WpImage/WpImage.component';
+import { WpImage } from '@/components/WpImage/WpImage.component'
+import { exists } from '@/functions/exists'
 
 interface CaseProps extends HTMLAttributes<HTMLDivElement> {
 	title: string
@@ -18,11 +16,11 @@ interface CaseProps extends HTMLAttributes<HTMLDivElement> {
 	review?: number
 }
 
-export const Case = ({ title, imageId, label, review, light }: CaseProps) => {
+export const Case = async ({ title, imageId, label }: CaseProps): Promise<ReactElement> => {
 	console.log('render case')
 
 	return (
-		<section className={`portfolio-case ${light ? styles.light : ''} ${styles.wrapper}`}>
+		<section className={`portfolio-case ${styles.wrapper}`}>
 			<div className={`container ${styles.inner}`}>
 				<div className={styles.imageBlock}>
 					<WpImage className={styles.review} imageId={imageId} />
@@ -31,12 +29,10 @@ export const Case = ({ title, imageId, label, review, light }: CaseProps) => {
 				<div className={styles.info}>
 					<Title4 className="observe">{label}</Title4>
 					<Title2 className="observe">{title}</Title2>
-					{review ? <>
-						<Title4 className="observe">Отзыв заказчика:</Title4>
-						<WpImage className={styles.review} imageId={review} />
-					</> : ''}
+					<Title4 className="observe">Отзыв заказчика:</Title4>
+					<WpImage className={styles.review} imageId={exists<number>(imageId)} />
 				</div>
 			</div>
 		</section >
-	);
-};
+	)
+}

@@ -1,3 +1,3 @@
 export interface MenuProps {
-	items: { ID: number, url: string, title: string }[] | undefined
+	items: Array<{ ID: number, url: string, title: string }> | undefined
 }

@@ -1,7 +1,6 @@
+import type { ReactNode } from 'react'
 
-
-
-export const FigmaIcon = () => (
+export const FigmaIcon = (): ReactNode => (
 	<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 		<g clipPath="url(#clip0_1_8)">
 			<path d="M10.251 32C13.1484 32 15.5 29.6107 15.5 26.6667V21.3333H10.251C7.3536 21.3333 5.00208 23.7227 5.00208 26.6667C5.00208 29.6107 7.3536 32 10.251 32Z" fill="white" />

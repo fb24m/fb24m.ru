@@ -1,29 +1,29 @@
-import { Box, Icon, Input } from '@/ui/components';
+import { Box, Input } from '@/ui/components'
+import type { ReactNode } from 'react'
 
-
-export const ContactForm = () => {
+export const ContactForm = (): ReactNode => {
 	return (
 		<Box direction="column">
 			<Input
 				required
 				name='name'
-				icon={<Icon name="account_circle" />}
+				icon="account_circle"
 				placeholder='Ваше имя'
 				autoComplete='name'
 			/>
 			<Input
 				required
 				name='contact'
-				icon={<Icon name="alternate_email" />}
+				icon="alternate_email"
 				placeholder='Email или Telegram'
 				autoComplete='email'
 			/>
 			<Input
 				required
 				name='message'
-				icon={<Icon name="comment" />}
+				icon="comment"
 				placeholder='Комментарий'
 			/>
 		</Box>
-	);
-};
+	)
+}

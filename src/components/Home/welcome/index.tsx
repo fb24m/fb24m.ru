@@ -1,14 +1,15 @@
-import styles from './index.module.scss';
+import styles from './index.module.scss'
 
-import { Title1, Body1, Title2 } from '@/ui/components';
-import { FigmaIcon } from '@/ui/icons/Figma.component';
-import { ReactIcon } from '@/ui/icons/React.component';
-import { NextIcon } from '@/ui/icons/Next.component';
-import { ViteIcon } from '@/ui/icons/Vite.component';
-import { WebPackIcon } from '@/ui/icons/WebPack.component';
-import { Icon } from '@/ui/components/Icon/index';
+import { Title1, Body1, Title2 } from '@/ui/components'
+import { FigmaIcon } from '@/ui/icons/Figma.component'
+import { ReactIcon } from '@/ui/icons/React.component'
+import { NextIcon } from '@/ui/icons/Next.component'
+import { ViteIcon } from '@/ui/icons/Vite.component'
+import { WebPackIcon } from '@/ui/icons/WebPack.component'
+import { Icon } from '@/ui/components/Icon/index'
+import type { ReactNode } from 'react'
 
-const Welcome = () => {
+const Welcome = (): ReactNode => {
 	return (
 		<article className={styles.block}>
 			<div className="container">
@@ -63,4 +64,5 @@ const Welcome = () => {
 		</article>
 	)
 }
+
 export default Welcome

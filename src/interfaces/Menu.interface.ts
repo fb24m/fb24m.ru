@@ -1,7 +1,7 @@
 export interface IMenu {
-	items: {
+	items: Array<{
 		ID: number
 		title: string
 		url: string
-	}[]
+	}>
 }

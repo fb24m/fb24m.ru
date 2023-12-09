@@ -1,7 +1,8 @@
-import styles from './index.module.scss';
-import { Card } from '@/ui/components';
-import Link from 'next/link';
-import { WpImage } from '../../WpImage/WpImage.component';
+import styles from './index.module.scss'
+import { Card } from '@/ui/components'
+import Link from 'next/link'
+import { WpImage } from '../../WpImage/WpImage.component'
+import type { ReactNode } from 'react'
 
 interface PostProps {
 	slug: string
@@ -10,7 +11,7 @@ interface PostProps {
 	imageId: number
 }
 
-const PostCard = (props: PostProps): React.ReactElement => {
+const PostCard = (props: PostProps): ReactNode => {
 	return (
 		<Card className={styles.card} as="section">
 			<Link href={`/blog/${props.slug}`} className={styles.link}><>

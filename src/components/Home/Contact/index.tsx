@@ -1,10 +1,11 @@
-import styles from './index.module.scss';
-import { ContactForm } from '@/components/ContactForm';
+import styles from './index.module.scss'
+import { ContactForm } from '@/components/ContactForm'
 
-import { Card, MarkedList, Title3 } from '@/ui/components/';
-import Image from 'next/image';
+import { Card, MarkedList, Title3 } from '@/ui/components'
+import Image from 'next/image'
+import type { ReactNode } from 'react'
 
-const Contact = () => {
+const Contact = (): ReactNode => {
 	return (
 		<article className={`container ${styles.container}`} id='contact'>
 			<MarkedList>

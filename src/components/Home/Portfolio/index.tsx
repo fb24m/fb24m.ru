@@ -1,11 +1,12 @@
-import './index.scss';
-import styles from './index.module.scss';
+import './index.scss'
+import styles from './index.module.scss'
 
-import { Case } from './Case';
-import { Wordpress } from '@/services/Wordpress';
+import { Case } from './Case'
+import { Wordpress } from '@/services/Wordpress'
+import type { ReactElement } from 'react'
 
-const Portfolio = async () => {
-	const portfolio = await Wordpress.getPortfolio();
+const Portfolio = async (): Promise<ReactElement> => {
+	const portfolio = await Wordpress.getPortfolio()
 	console.log('portfolio render')
 
 	return (
@@ -22,7 +23,7 @@ const Portfolio = async () => {
 				/>
 			)}
 		</article>
-	);
-};
+	)
+}
 
 export default Portfolio

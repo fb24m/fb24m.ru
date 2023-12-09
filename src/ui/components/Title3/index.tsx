@@ -1,7 +1,8 @@
-import styles from './index.module.scss';
-import { TextComponentProps } from '../../interfaces/TextComponentProps';
-import { fira_code } from '@/fonts';
+import styles from './index.module.scss'
+import type { TextComponentProps } from '../../interfaces/TextComponentProps'
+import { firaCode } from '@/fonts'
+import type { ReactNode } from 'react'
 
-export const Title3 = ({ children, className, ...props }: TextComponentProps): JSX.Element => {
-	return <h3 className={`${fira_code.className} ${styles.title3} ${className}`} {...props}>{children}</h3>
+export const Title3 = ({ children, className, ...props }: TextComponentProps): ReactNode => {
+	return <h3 className={`${firaCode.className} ${styles.title3} ${className}`} {...props}>{children}</h3>
 }

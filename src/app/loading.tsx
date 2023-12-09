@@ -1,9 +1,13 @@
 'use client'
 
-export default function Loading() {
+import type { ReactNode } from 'react'
+
+const Loading = (): ReactNode => {
   return (
     <main>
       Загрузка...
     </main>
   )
 }
+
+export default Loading

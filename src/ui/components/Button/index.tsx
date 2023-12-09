@@ -1,33 +1,35 @@
-import Link from "next/link";
-import "./index.scss";
-import { fira_code } from "@/fonts";
+import Link from 'next/link'
+import './index.scss'
+import { firaCode } from '@/fonts'
+import { Icon } from '../Icon/index'
+import { exists } from '@/functions/exists'
+import type { ReactNode } from 'react'
 
 interface ButtonProps {
 	as?: 'a' | 'button'
 	type?: 'button' | 'submit' | 'reset'
 	href?: string
-	children: JSX.Element | string
-	icon?: JSX.Element
+	children: ReactNode | string
+	icon?: string
 	appearance?: 'Primary' | 'Secondary' | 'Link'
 	className?: string
-};
+}
 
-export const Button = ({ as, icon, type, className, href, children, appearance, ...props }: ButtonProps): JSX.Element => {
+export const Button = ({ as, icon, type, className, href, children, appearance, ...props }: ButtonProps): ReactNode => {
 	const defaultProps = {
 		...props,
-		className: `button button${appearance} ${className} ${fira_code.className}`,
+		className: `button button${appearance} ${className} ${firaCode.className}`
 	}
 
 	if (as === 'a') {
-		return <Link {...defaultProps} href={href!}>
-			{icon ? icon : ''}
+		return <Link {...defaultProps} href={exists(href)}>
+			<Icon name={exists(icon)} />
 			{children}
 		</Link>
-	}
-	else {
+	} else {
 		return <button {...defaultProps}>
-			{icon ? icon : ''}
+			<Icon name={exists(icon)} />
 			{children}
 		</button>
 	}
-};
+}

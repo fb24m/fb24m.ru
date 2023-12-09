@@ -3,13 +3,10 @@ import Link from 'next/link'
 import styles from './Logo.module.scss'
 import { Wordpress } from '@/services/Wordpress'
 import Image from 'next/image'
+import type { ReactElement } from 'react'
+import { exists } from '@/functions/exists'
 
-const exists = (str: string | undefined): string => {
-	if (str) return str
-	else return ''
-}
-
-const Logo = async () => {
+const Logo = async (): Promise<ReactElement> => {
 	const settings = await Wordpress.getSettings()
 
 	return (

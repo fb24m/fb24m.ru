@@ -1,10 +1,11 @@
-import styles from './index.module.scss';
+import styles from './index.module.scss'
 
-import { Title2, Label, Button, Icon, Box } from '@/ui/components';
-import { AboutCard } from './AboutCard';
-import Image from 'next/image';
+import { Title2, Label, Button, Box } from '@/ui/components'
+import { AboutCard } from './AboutCard'
+import Image from 'next/image'
+import type { ReactNode } from 'react'
 
-const About = () => (
+const About = (): ReactNode => (
 	<article className={styles.wrapper}>
 		<div className={`${styles.container} container`}>
 			<div className={styles.subblock}>
@@ -17,8 +18,8 @@ const About = () => (
 					<AboutCard className={styles.card} title='Более 50' description='страниц за 2 месяца' />
 				</div>
 				<Box className={styles.buttons}>
-					<Button className={`observe`} icon={<Icon name='phone_enabled' />} href='#contact' as='a' appearance='Primary'>Связаться</Button>
-					<Button className={`observe`} icon={<Icon name='laptop' />} href='#portfolio' as='a' appearance='Secondary'>В портфолио</Button>
+					<Button className="observe" icon="phone_enabled" href='#contact' as='a' appearance='Primary'>Связаться</Button>
+					<Button className="observe" icon="laptop" href='#portfolio' as='a' appearance='Secondary'>В портфолио</Button>
 				</Box>
 			</div>
 			<div className={styles.subblock}>

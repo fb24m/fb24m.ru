@@ -1,12 +1,15 @@
-import styles from './index.module.scss';
+import { exists } from '@/functions/exists'
+import styles from './index.module.scss'
+import type { HTMLAttributes, ReactNode } from 'react'
 
-export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-	size?: 'small' | 'normal' | 'big',
+export interface CardProps extends HTMLAttributes<HTMLDivElement> {
+	size?: 'small' | 'normal' | 'big'
 	as?: 'div' | 'section' | 'article'
 }
 
-export const Card = ({ className, as, ...props }: CardProps): React.ReactElement => {
-	const size = props.size ? props.size : 'normal';
+export const Card = ({ className, as, ...props }: CardProps): ReactNode => {
+	const size = exists(props.size)
+
 	const childrenProps = {
 		...props,
 		className: `${className} ${styles.card} ${styles[`card_${size}`]}`
@@ -15,4 +18,4 @@ export const Card = ({ className, as, ...props }: CardProps): React.ReactElement
 	if (as === 'section') return <section {...childrenProps}></section>
 	if (as === 'article') return <article {...childrenProps}></article>
 	else return <div {...childrenProps}></div>
-};
+}

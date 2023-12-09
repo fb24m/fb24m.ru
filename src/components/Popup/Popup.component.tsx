@@ -1,29 +1,30 @@
 'use client'
 
-import { useState, createContext } from 'react'
-import { PopupProps } from './Popup.props'
+import { useState, createContext, type ReactNode } from 'react'
+import type { PopupProps } from './Popup.props'
 
 import styles from './Popup.module.scss'
+import { exists } from '@/functions/exists'
 
-export interface PopupContext {
-	togglePopupOpened: Function
+export interface IPopupContext {
+	togglePopupOpened?: () => void
 }
 
-export const PopupContext = createContext<PopupContext>({} as PopupContext)
+export const PopupContext = createContext<IPopupContext>({})
 
-export const Popup = ({ className, children, trigger, ...props }: PopupProps) => {
-	const [classList, setClassList] = useState('');
+export const Popup = ({ className, children, trigger, ...props }: PopupProps): ReactNode => {
+	const [classList, setClassList] = useState('')
 
-	const togglePopupOpened = () => classList === '' ? setClassList(styles.opened) : setClassList('');
+	const togglePopupOpened = (): void => { classList === '' ? setClassList(styles.opened) : setClassList('') }
 
 	return (
-		<PopupContext.Provider value={{ togglePopupOpened: togglePopupOpened }}>
-			<div onClick={() => togglePopupOpened()}>{trigger}</div>
-			<div {...props} className={`${classList} ${className ? className : ''} ${styles.popup}`}>
+		<PopupContext.Provider value={{ togglePopupOpened }}>
+			<div onClick={() => { togglePopupOpened() }}>{trigger}</div>
+			<div {...props} className={`${classList} ${exists(className)} ${styles.popup}`}>
 				<div className={styles.window}>
 					{children}
 				</div>
 			</div>
 		</PopupContext.Provider>
-	);
+	)
 }

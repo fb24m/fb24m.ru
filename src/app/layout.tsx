@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { Header } from '@/components/Header'
 
-import { fira_code } from '@/fonts'
+import { firaCode } from '@/fonts'
 import { Wordpress } from '@/services/Wordpress'
-import { Suspense } from 'react'
+import { type ReactNode, Suspense } from 'react'
 import { Spinner } from '@/ui/components/Spinner/Spinner.component'
 
 export const generateMetadata = async (): Promise<Metadata> => {
@@ -21,9 +21,9 @@ export const generateMetadata = async (): Promise<Metadata> => {
   }
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+const RootLayout = ({ children }: { children: ReactNode }): ReactNode => {
   return (
-    <html className={`${fira_code.className}`} lang="en">
+    <html className={`${firaCode.className}`} lang="en">
       <body>
         <Suspense fallback={<Spinner />}>
           <Header />
@@ -33,3 +33,5 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   )
 }
+
+export default RootLayout

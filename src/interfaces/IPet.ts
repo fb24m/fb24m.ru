@@ -3,7 +3,7 @@ export interface IPet {
 	title: { rendered: string }
 	content: { rendered: string }
 	acf: {
-		url: string,
+		url: string
 		icon: string
 	}
 }

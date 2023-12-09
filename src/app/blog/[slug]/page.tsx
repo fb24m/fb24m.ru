@@ -1,23 +1,26 @@
-import styles from "./style.module.scss";
-import { Metadata } from "next";
+import styles from './style.module.scss'
+import type { Metadata } from 'next'
 
-import { Alignment, Box, Icon, Title2, Title3 } from "@/ui/components";
-import { formatDate } from "@/functions/formatDate";
-import { Wordpress } from "@/services/Wordpress";
-import { WpImage } from '../../../components/WpImage/WpImage.component';
+import { Alignment, Box, Icon, Title3 } from '@/ui/components'
+import { formatDate } from '@/functions/formatDate'
+import { Wordpress } from '@/services/Wordpress'
+import { WpImage } from '../../../components/WpImage/WpImage.component'
+import { exists } from '@/functions/exists'
+import type { ReactElement } from 'react'
+import { isDefined } from '@/functions/isDefined'
 
 interface PageProps {
 	params: { slug: string }
 }
 
-export const dynamicParams = true;
+export const dynamicParams = true
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export const generateMetadata = async ({ params }: PageProps): Promise<Metadata> => {
 	const data = await Wordpress.getPostBySlug(params.slug)
 
-	if (!data) return {}
+	if (typeof data.length === 'undefined') return {}
 
-	const [post] = data!
+	const [post] = data
 
 	const image = await Wordpress.getMediaById(post.featured_media)
 
@@ -27,16 +30,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 			title: post.title.rendered,
 			description: post.excerpt.rendered.replace(/[<p>,</p>]/g, ''),
 			url: `https://fb24m.ru/blog/${post.slug}}`,
-			images: [image?.guid?.rendered ? image?.guid?.rendered : ''],
+			images: [exists(image.guid.rendered)]
 		}
 	}
 }
 
-export default async function Post(props: PageProps) {
-	const { params } = props;
-	const data = await Wordpress.getPostBySlug(params.slug);
+const Post = async (props: PageProps): Promise<ReactElement> => {
+	const { params } = props
+	const data = await Wordpress.getPostBySlug(params.slug)
 
-	if (data)
+	if (isDefined(data)) {
 		return (
 			<div className={`container ${styles.container}`}>
 				<div className={styles.base}>
@@ -54,5 +57,7 @@ export default async function Post(props: PageProps) {
 				<div className={'eval ' + styles.content} dangerouslySetInnerHTML={{ __html: data[0]?.content.rendered }}></div>
 			</div>
 		)
-	else return <>404</>
+	} else return <>404</>
 }
+
+export default Post

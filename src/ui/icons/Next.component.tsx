@@ -1,7 +1,6 @@
+import type { ReactNode } from 'react'
 
-
-
-export const NextIcon = () => (
+export const NextIcon = (): ReactNode => (
 	<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 		<g clipPath="url(#clip0_1_23)">
 			<g clipPath="url(#clip1_1_23)">

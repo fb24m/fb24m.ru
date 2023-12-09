@@ -1,7 +1,6 @@
+import type { ReactNode } from 'react'
 
-
-
-export const WebPackIcon = () => (
+export const WebPackIcon = (): ReactNode => (
 	<svg width="32" height="32" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
 		<g clipPath="url(#clip0_1_32)">
 			<g clipPath="url(#clip1_1_32)">

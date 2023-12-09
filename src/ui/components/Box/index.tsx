@@ -1,5 +1,5 @@
-import styles from './index.module.scss';
-import { HTMLAttributes } from 'react';
+import styles from './index.module.scss'
+import type { HTMLAttributes, ReactNode } from 'react'
 
 export enum Alignment {
 	start = 'start',
@@ -15,9 +15,9 @@ export interface BoxProps extends HTMLAttributes<HTMLDivElement> {
 	direction?: 'row' | 'column'
 }
 
-export const Box = ({ align, justify, gap = 8, direction, children, className, ...props }: BoxProps): React.ReactElement => {
+export const Box = ({ align, justify, gap = 8, direction, children, className, ...props }: BoxProps): ReactNode => {
 	return (
-		<div {...props} style={{ gap: gap }}
-			className={`${className} ${styles.box} ${styles[`direction${direction}`]} ${justify ? styles[`justify${justify}`] : ''} ${justify ? styles[`align${align}`] : ''}`}>{children}</div>
-	);
-};
+		<div {...props} style={{ gap }}
+			className={`${className} ${styles.box} ${styles[`direction${direction}`]} ${styles[`justify${justify}`]} ${styles[`align${align}`]}`}>{children}</div>
+	)
+}

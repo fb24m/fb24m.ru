@@ -1,23 +1,19 @@
-let totalRequsts: number = 0;
+let totalRequsts: number = 0
 
-export const request = async <T,>(path: string, tag: string) => {
+export const request = async <T,>(path: string, tag: string): Promise<T> => {
 	totalRequsts++
 	console.log(`[<Request> log] Request to ${path}\n[<Request> log] Total requests: ${totalRequsts}`)
-
 
 	try {
 		const response = await fetch(path, {
 			next: { tags: [tag] }, cache: 'no-cache'
-		});
-		const posts: T = await response.json();
+		})
+		const posts: T = await response.json()
 
-		return posts;
-	}
-	catch {
-		console.log(`[<Request> Error] ${fetch(path)}`)
+		return posts
+	} catch {
+		console.log(`[<Request> Error] ${path}`)
+
+		return await new Promise<T>(() => { })
 	}
 }
-
-// headers: {
-// 	'Authorization': `Basic ${btoa(`fb24m: ${process.env.WORDPRESS_TOKEN}`)}`
-// }
