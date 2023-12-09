@@ -1,8 +1,10 @@
 import styles from './index.module.scss'
-import { Card } from '@/ui/components'
 import Link from 'next/link'
 import { WpImage } from '../../WpImage/WpImage.component'
 import type { ReactNode } from 'react'
+import dynamic from 'next/dynamic'
+
+const Card = dynamic(() => import('@/ui/components/Card'))
 
 interface PostProps {
 	slug: string

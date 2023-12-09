@@ -1,7 +1,13 @@
 import type { ReactNode } from 'react'
 
 import styles from './index.module.scss'
-import { Body1, Card, Icon, Title4 } from '@/ui/components'
+import { Body1 } from '@/ui/components'
+import dynamic from 'next/dynamic'
+
+const Icon = dynamic(() => import('@/ui/components/Icon'))
+const Card = dynamic(() => import('@/ui/components/Card'))
+
+const Title4 = dynamic(() => import('@/ui/components/Title4'))
 
 export interface PetCardProps {
 	title: string

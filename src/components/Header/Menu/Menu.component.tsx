@@ -1,11 +1,12 @@
 'use client'
 
-import { useState, type ReactNode, lazy } from 'react'
+import { useState, type ReactNode } from 'react'
 import styles from './Menu.module.scss'
 import type { MenuProps } from './Menu.props'
-import { Icon } from '@/ui/components'
+import dynamic from 'next/dynamic'
 
-const Button = lazy(() => import('@/ui/components/Button'))
+const Button = dynamic(() => import('@/ui/components/Button'))
+const Icon = dynamic(() => import('@/ui/components/Icon'))
 
 const Menu = (props: MenuProps): ReactNode => {
 	const [className, setClassName] = useState('')
@@ -23,6 +24,12 @@ const Menu = (props: MenuProps): ReactNode => {
 						<Button as='a' appearance='Link' href={item.url}>{item.title}</Button>
 					</li>
 				)}
+				<li className={`observe ${styles.item}`}>
+					<Button as='a' appearance='Link' href="/blog">Блог</Button>
+				</li>
+				<li className={`observe ${styles.item}`}>
+					<Button as='a' appearance='Link' href="/pet">Пет-проекты</Button>
+				</li>
 			</ul>
 		</div>
 	)

@@ -8,8 +8,10 @@ interface IconProps {
 	size?: 'small' | 'medium' | 'big' | 'large'
 }
 
-export const Icon = ({ size = 'small', ...props }: IconProps): ReactNode => {
+const Icon = ({ size = 'small', ...props }: IconProps): ReactNode => {
 	return (
 		<i className={`${styles.icon} ${styles[size]} ${exists(props.className)} material-symbols-outlined`}>{props.name}</i>
 	)
 }
+
+export default Icon

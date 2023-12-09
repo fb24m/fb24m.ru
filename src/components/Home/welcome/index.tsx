@@ -1,13 +1,18 @@
 import styles from './index.module.scss'
 
-import { Title1, Body1, Title2 } from '@/ui/components'
+import { Body1 } from '@/ui/components'
 import { FigmaIcon } from '@/ui/icons/Figma.component'
 import { ReactIcon } from '@/ui/icons/React.component'
 import { NextIcon } from '@/ui/icons/Next.component'
 import { ViteIcon } from '@/ui/icons/Vite.component'
 import { WebPackIcon } from '@/ui/icons/WebPack.component'
-import { Icon } from '@/ui/components/Icon/index'
 import type { ReactNode } from 'react'
+import dynamic from 'next/dynamic'
+
+const Title1 = dynamic(() => import('@/ui/components/Title1'))
+const Title2 = dynamic(() => import('@/ui/components/Title2'))
+
+const Icon = dynamic(() => import('@/ui/components/Icon'))
 
 const Welcome = (): ReactNode => {
 	return (

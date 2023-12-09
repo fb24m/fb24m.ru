@@ -1,9 +1,10 @@
 import Link from 'next/link'
 import './index.scss'
-import { firaCode } from '@/fonts'
-import { Icon } from '../Icon/index'
 import { exists } from '@/functions/exists'
 import type { ReactNode } from 'react'
+import dynamic from 'next/dynamic'
+
+const Icon = dynamic(() => import('@/ui/components/Icon'))
 
 interface ButtonProps {
 	as?: 'a' | 'button'
@@ -18,11 +19,11 @@ interface ButtonProps {
 const Button = ({ as, icon, type, className, href, children, appearance, ...props }: ButtonProps): ReactNode => {
 	const defaultProps = {
 		...props,
-		className: `button button${appearance} ${className} ${firaCode.className}`
+		className: `button button${appearance} ${className}`
 	}
 
 	if (as === 'a') {
-		return <Link {...defaultProps} href={exists(href)}>
+		return <Link prefetch={false} {...defaultProps} href={exists(href)}>
 			<Icon name={exists(icon)} />
 			{children}
 		</Link>

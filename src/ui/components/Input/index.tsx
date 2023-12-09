@@ -1,7 +1,9 @@
 import styles from './index.module.scss'
-import { Icon } from '../Icon'
 import { exists } from '@/functions/exists'
+import dynamic from 'next/dynamic'
 import type { HTMLAttributes, ReactNode } from 'react'
+
+const Icon = dynamic(() => import('@/ui/components/Icon'))
 
 interface InputProps extends HTMLAttributes<HTMLInputElement> {
 	icon: string

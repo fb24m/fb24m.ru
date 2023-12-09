@@ -7,7 +7,7 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement> {
 	as?: 'div' | 'section' | 'article'
 }
 
-export const Card = ({ className, as, ...props }: CardProps): ReactNode => {
+const Card = ({ className, as, ...props }: CardProps): ReactNode => {
 	const size = exists(props.size)
 
 	const childrenProps = {
@@ -19,3 +19,5 @@ export const Card = ({ className, as, ...props }: CardProps): ReactNode => {
 	if (as === 'article') return <article {...childrenProps}></article>
 	else return <div {...childrenProps}></div>
 }
+
+export default Card

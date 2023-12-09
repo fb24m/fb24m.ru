@@ -2,10 +2,14 @@ import styles from './index.module.scss'
 import './index.scss'
 import type { HTMLAttributes, ReactElement } from 'react'
 
-import { Body1, Title2, Title3 } from '@/ui/components'
+import { Body1 } from '@/ui/components'
 
 import { WpImage } from '@/components/WpImage/WpImage.component'
 import { exists } from '@/functions/exists'
+import dynamic from 'next/dynamic'
+
+const Title2 = dynamic(() => import('@/ui/components/Title2'))
+const Title3 = dynamic(() => import('@/ui/components/Title3'))
 
 interface CaseProps extends HTMLAttributes<HTMLDivElement> {
 	title: string

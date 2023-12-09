@@ -5,12 +5,12 @@ import dynamic from 'next/dynamic'
 import { order } from '@/actions/order.action'
 import { useFormStatus } from 'react-dom'
 
-import { Spinner } from '@/ui/components/Spinner/Spinner.component'
-
 import type { CustomPopupProps } from '@/interfaces/CustomPopup.props'
 
 import styles from './ContactForm.module.scss'
 import type { ReactNode } from 'react'
+
+const Spinner = dynamic(() => import('@/ui/components/Spinner/Spinner.component'))
 
 const Popup = dynamic(() => import('@/components/Popup/Popup.component'))
 const PopupBody = dynamic(() => import('@/components/PopupBody/PopupBody.component'))
