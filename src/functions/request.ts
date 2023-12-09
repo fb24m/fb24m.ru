@@ -6,7 +6,7 @@ export const request = async <T,>(path: string, tag: string): Promise<T> => {
 
 	try {
 		const response = await fetch(path, {
-			next: { tags: [tag] }, cache: 'no-cache'
+			next: { tags: [tag], revalidate: 600 }
 		})
 		const posts: T = await response.json()
 
