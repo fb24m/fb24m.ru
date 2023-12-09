@@ -2,16 +2,20 @@ import styles from './index.module.scss'
 import './scroll.scss'
 import dynamic from 'next/dynamic'
 
-import { Button, Alignment, Box } from '@/ui/components'
+import { Alignment } from '@/ui/components'
 
 import { Wordpress } from '@/services/Wordpress'
-import { Menu } from './Menu/Menu.component'
 import type { ReactElement } from 'react'
 
-const Logo = dynamic(async () => await import('@/components/Logo/Logo.component'))
-const ContactPopup = dynamic(async () => await import('@/popups/Contact.popup'))
+const Menu = dynamic(() => import('./Menu/Menu.component'))
 
-export const Header = async (): Promise<ReactElement> => {
+const Logo = dynamic(async () => await import('@/components/Logo/Logo.component'))
+const ContactPopup = dynamic(async () => await import('@/popups/Contact.popup'), { ssr: false })
+
+const Button = dynamic(() => import('@/ui/components/Button'))
+const Box = dynamic(() => import('@/ui/components/Box'))
+
+const Header = async (): Promise<ReactElement> => {
 	const menu = await Wordpress.getMenu()
 
 	return (
@@ -31,3 +35,5 @@ export const Header = async (): Promise<ReactElement> => {
 		</header>
 	)
 }
+
+export default Header

@@ -1,0 +1,62 @@
+.eval * {
+	line-height: 170%;
+	hyphens: auto;
+}
+
+.eval img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 8px;
+}
+
+.eval,
+.eval blockquote {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}
+
+.eval br {
+	height: 1em;
+}
+
+.eval blockquote {
+	border-left: var(--foregroundColor) 3px solid;
+	padding: 8px 24px;
+}
+
+@media(max-width: 560px) {
+	.eval blockquote {
+		margin-left: 0;
+		margin-top: 110px;
+	}
+
+	.eval blockquote::before {
+		transform: rotateZ(180deg) rotateX(180deg) translateY(-110px);
+		left: 0px;
+	}
+}
+
+.eval blockquote cite {
+	font-style: normal;
+}
+
+.eval blockquote cite::before {
+	content: '© ';
+}
+
+.eval ul {
+	display: flex;
+	flex-direction: column;
+	gap: .4em;
+}
+
+.eval li {
+	display: flex;
+	gap: 8px;
+}
+
+.eval li::before {
+	content: '·';
+	font-weight: 700;
+}

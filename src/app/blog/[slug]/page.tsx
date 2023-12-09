@@ -1,13 +1,16 @@
 import styles from './style.module.scss'
 import type { Metadata } from 'next'
 
-import { Alignment, Box, Icon, Title3 } from '@/ui/components'
+import { Alignment, Icon, Title3 } from '@/ui/components'
 import { formatDate } from '@/functions/formatDate'
 import { Wordpress } from '@/services/Wordpress'
 import { WpImage } from '../../../components/WpImage/WpImage.component'
 import { exists } from '@/functions/exists'
 import type { ReactElement } from 'react'
 import { isDefined } from '@/functions/isDefined'
+import dynamic from 'next/dynamic'
+
+const Box = dynamic(() => import('@/ui/components/Box'))
 
 interface PageProps {
 	params: { slug: string }

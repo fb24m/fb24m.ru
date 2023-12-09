@@ -6,7 +6,6 @@
 }
 
 .columns {
-	// @include grid.grid(3, $gap: 24px);
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	margin-bottom: 24px;
@@ -18,7 +17,6 @@
 }
 
 .title {
-	// margin-bottom: 8px;
 	display: flex;
 	flex-wrap: wrap;
 

@@ -13,7 +13,7 @@ interface InputProps extends HTMLAttributes<HTMLInputElement> {
 	required?: boolean
 }
 
-export const Input = ({ className, icon, placeholder, register, ...props }: InputProps): ReactNode => {
+const Input = ({ className, icon, placeholder, register, ...props }: InputProps): ReactNode => {
 	return (
 		<div className={`${className} ${styles.wrapper}`}>
 			<Icon name={exists(icon)} />
@@ -23,3 +23,5 @@ export const Input = ({ className, icon, placeholder, register, ...props }: Inpu
 		</div>
 	)
 }
+
+export default Input

@@ -12,7 +12,7 @@ export interface IPopupContext {
 
 export const PopupContext = createContext<IPopupContext>({})
 
-export const Popup = ({ className, children, trigger, ...props }: PopupProps): ReactNode => {
+const Popup = ({ className, children, trigger, ...props }: PopupProps): ReactNode => {
 	const [classList, setClassList] = useState('')
 
 	const togglePopupOpened = (): void => { classList === '' ? setClassList(styles.opened) : setClassList('') }
@@ -28,3 +28,5 @@ export const Popup = ({ className, children, trigger, ...props }: PopupProps): R
 		</PopupContext.Provider>
 	)
 }
+
+export default Popup

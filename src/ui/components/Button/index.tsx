@@ -15,7 +15,7 @@ interface ButtonProps {
 	className?: string
 }
 
-export const Button = ({ as, icon, type, className, href, children, appearance, ...props }: ButtonProps): ReactNode => {
+const Button = ({ as, icon, type, className, href, children, appearance, ...props }: ButtonProps): ReactNode => {
 	const defaultProps = {
 		...props,
 		className: `button button${appearance} ${className} ${firaCode.className}`
@@ -33,3 +33,5 @@ export const Button = ({ as, icon, type, className, href, children, appearance, 
 		</button>
 	}
 }
+
+export default Button

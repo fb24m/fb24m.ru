@@ -1,11 +1,12 @@
 import { Wordpress } from '../../services/Wordpress'
 import type { Metadata } from 'next'
 
-import { Body1, Box, Title2 } from '@/ui/components'
+import { Body1, Title2 } from '@/ui/components'
 import dynamic from 'next/dynamic'
 import type { ReactElement } from 'react'
 
 const PetCard = dynamic(() => import('./PetCard'))
+const Box = dynamic(() => import('@/ui/components/Box'))
 
 export const generateMetadata = async (): Promise<Metadata> => {
 	const settings = await Wordpress.getSettings()

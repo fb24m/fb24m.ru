@@ -1,9 +1,13 @@
 import styles from './index.module.scss'
 
-import { Title2, Label, Button, Box } from '@/ui/components'
+import { Title2, Label } from '@/ui/components'
 import { AboutCard } from './AboutCard'
 import Image from 'next/image'
 import type { ReactNode } from 'react'
+import dynamic from 'next/dynamic'
+
+const Button = dynamic(() => import('@/ui/components/Button'))
+const Box = dynamic(() => import('@/ui/components/Box'))
 
 const About = (): ReactNode => (
 	<article className={styles.wrapper}>

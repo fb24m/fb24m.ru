@@ -5,10 +5,14 @@ import type { PopupFooterProps } from './PopupFooter.props'
 
 import styles from './PopupFooter.module.scss'
 import { PopupContext } from '../Popup/Popup.component'
-import { Alignment, Box, Button } from '@/ui/components'
+import { Alignment } from '@/ui/components'
 import { exists } from '@/functions/exists'
+import dynamic from 'next/dynamic'
 
-export const PopupFooter = ({ className, children, ...props }: PopupFooterProps): ReactNode => {
+const Button = dynamic(() => import('@/ui/components/Button'))
+const Box = dynamic(() => import('@/ui/components/Box'))
+
+const PopupFooter = ({ className, children, ...props }: PopupFooterProps): ReactNode => {
 	const popup = useContext(PopupContext)
 
 	return (
@@ -21,3 +25,5 @@ export const PopupFooter = ({ className, children, ...props }: PopupFooterProps)
 		</div>
 	)
 }
+
+export default PopupFooter

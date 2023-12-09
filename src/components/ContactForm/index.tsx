@@ -1,7 +1,10 @@
-import { Box, Input } from '@/ui/components'
+import dynamic from 'next/dynamic'
 import type { ReactNode } from 'react'
 
-export const ContactForm = ({ idPrefix }: { idPrefix: string }): ReactNode => {
+const Input = dynamic(() => import('@/ui/components/Input'))
+const Box = dynamic(() => import('@/ui/components/Box'))
+
+const ContactForm = ({ idPrefix }: { idPrefix: string }): ReactNode => {
 	return (
 		<Box direction="column">
 			<Input
@@ -30,3 +33,5 @@ export const ContactForm = ({ idPrefix }: { idPrefix: string }): ReactNode => {
 		</Box>
 	)
 }
+
+export default ContactForm

@@ -1,11 +1,13 @@
 'use client'
 
-import { useState, type ReactNode } from 'react'
+import { useState, type ReactNode, lazy } from 'react'
 import styles from './Menu.module.scss'
 import type { MenuProps } from './Menu.props'
-import { Button, Icon } from '@/ui/components'
+import { Icon } from '@/ui/components'
 
-export const Menu = (props: MenuProps): ReactNode => {
+const Button = lazy(() => import('@/ui/components/Button'))
+
+const Menu = (props: MenuProps): ReactNode => {
 	const [className, setClassName] = useState('')
 
 	const toggleClassName = (): void => { className !== '' ? setClassName('') : setClassName(styles.opened) }
@@ -25,3 +27,5 @@ export const Menu = (props: MenuProps): ReactNode => {
 		</div>
 	)
 }
+
+export default Menu

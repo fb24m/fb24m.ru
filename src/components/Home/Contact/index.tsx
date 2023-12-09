@@ -1,9 +1,11 @@
 import styles from './index.module.scss'
-import { ContactForm } from '@/components/ContactForm'
 
 import { Card, MarkedList, Title3 } from '@/ui/components'
+import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import type { ReactNode } from 'react'
+
+const ContactForm = dynamic(() => import('@/components/ContactForm'))
 
 const Contact = (): ReactNode => {
 	return (
