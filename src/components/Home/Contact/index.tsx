@@ -27,7 +27,7 @@ const Contact = (): ReactNode => {
 			</MarkedList>
 			<Card size='big'>
 				<Title3 className={styles.title}>Обратная связь</Title3>
-				<ContactForm />
+				<ContactForm idPrefix="contact-block" />
 			</Card>
 			<div className={styles.block}>
 				<Image width={380} height={380} src="/img/home/contact.png" alt="" />

@@ -31,7 +31,7 @@ const ContactPopup = (props: CustomPopupProps): ReactNode => {
 		<form action={order}>
 			<Popup trigger={props.trigger}>
 				<PopupBody>
-					<ContactForm />
+					<ContactForm idPrefix="contact-popup" />
 				</PopupBody>
 				<PopupFooter>
 					<SendButton />

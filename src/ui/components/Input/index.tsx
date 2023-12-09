@@ -17,9 +17,9 @@ export const Input = ({ className, icon, placeholder, register, ...props }: Inpu
 	return (
 		<div className={`${className} ${styles.wrapper}`}>
 			<Icon name={exists(icon)} />
-			<input id={props.name} className={styles.input} {...props} placeholder=' ' {...props} />
+			<input id={props.id} className={styles.input} {...props} placeholder=' ' {...props} />
 
-			<label htmlFor={props.name} className={styles.label}>{placeholder}</label>
+			<label htmlFor={props.id} className={styles.label}>{placeholder}</label>
 		</div>
 	)
 }
