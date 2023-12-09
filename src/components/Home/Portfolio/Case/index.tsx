@@ -2,7 +2,7 @@ import styles from './index.module.scss'
 import './index.scss'
 import type { HTMLAttributes, ReactElement } from 'react'
 
-import { Title2, Title4 } from '@/ui/components'
+import { Body1, Title2, Title4 } from '@/ui/components'
 
 import { WpImage } from '@/components/WpImage/WpImage.component'
 import { exists } from '@/functions/exists'
@@ -29,7 +29,7 @@ export const Case = async ({ title, imageId, label, review }: CaseProps): Promis
 				<div className={styles.info}>
 					<Title4 className="observe">{label}</Title4>
 					<Title2 className="observe">{title}</Title2>
-					<Title4 className="observe">Отзыв заказчика:</Title4>
+					<Body1 className="observe">Отзыв заказчика:</Body1>
 					<WpImage className={styles.review} imageId={exists<number>(review)} />
 				</div>
 			</div>
