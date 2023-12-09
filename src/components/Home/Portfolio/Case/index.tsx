@@ -16,7 +16,7 @@ interface CaseProps extends HTMLAttributes<HTMLDivElement> {
 	review?: number
 }
 
-export const Case = async ({ title, imageId, label }: CaseProps): Promise<ReactElement> => {
+export const Case = async ({ title, imageId, label, review }: CaseProps): Promise<ReactElement> => {
 	console.log('render case')
 
 	return (
@@ -30,7 +30,7 @@ export const Case = async ({ title, imageId, label }: CaseProps): Promise<ReactE
 					<Title4 className="observe">{label}</Title4>
 					<Title2 className="observe">{title}</Title2>
 					<Title4 className="observe">Отзыв заказчика:</Title4>
-					<WpImage className={styles.review} imageId={exists<number>(imageId)} />
+					<WpImage className={styles.review} imageId={exists<number>(review)} />
 				</div>
 			</div>
 		</section >
