@@ -1,6 +1,7 @@
 import { exists } from '@/functions/exists'
 import styles from './index.module.scss'
 import type { ReactNode } from 'react'
+import { materialIcons } from '@/fonts'
 
 interface IconProps {
 	name: string
@@ -10,7 +11,7 @@ interface IconProps {
 
 const Icon = ({ size = 'small', ...props }: IconProps): ReactNode => {
 	return (
-		<i className={`${styles.icon} ${styles[size]} ${exists(props.className)} material-symbols-outlined`}>{props.name}</i>
+		<i className={`${styles.icon} ${materialIcons.className} ${styles[size]} ${exists(props.className)}`}>{props.name}</i>
 	)
 }
 
