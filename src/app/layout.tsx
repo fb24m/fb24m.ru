@@ -27,7 +27,7 @@ const RootLayout = ({ children }: { children: ReactNode }): ReactNode => {
     <html className={`${firaCode.className}`} lang="en">
       <head>
         <link
-          rel="stylesheet"
+          rel="stylesheet" defer
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,200,0,0&display=swap"
         />
       </head>
