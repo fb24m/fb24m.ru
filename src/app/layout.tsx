@@ -5,6 +5,7 @@ import { firaCode } from '@/fonts'
 import { Wordpress } from '@/services/Wordpress'
 import { type ReactNode } from 'react'
 import dynamic from 'next/dynamic'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 const Header = dynamic(() => import('@/components/Header'))
 
@@ -25,6 +26,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
 const RootLayout = ({ children }: { children: ReactNode }): ReactNode => {
   return (
     <html className={`${firaCode.className}`} lang="en">
+      <SpeedInsights />
       <head>
         <link
           rel="stylesheet"
