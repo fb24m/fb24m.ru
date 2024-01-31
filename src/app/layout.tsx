@@ -27,9 +27,11 @@ const RootLayout = ({ children }: { children: ReactNode }): ReactNode => {
   return (
     <html className={`${firaCode.className}`} lang="en">
       <body>
-        <Header />
-        {children}
-        <SpeedInsights />
+        <div className="wrapper">
+          <Header />
+          {children}
+          <SpeedInsights />
+        </div>
       </body>
     </html>
   )

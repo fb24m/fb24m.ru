@@ -34,7 +34,7 @@
 }
 
 .excerpt {
-	height: 57px;
+	height: 4em;
 	overflow: hidden;
 	// display: flex;
 	// align-items: flex-end;
@@ -50,7 +50,24 @@
 	padding-top: 50px;
 	border-radius: 0 0 8px 8px;
 
-	margin-bottom: -72px;
+	margin-bottom: -78px;
 
 	background-image: linear-gradient(to top, #00000090, transparent);
+}
+
+.tags {
+	position: absolute;
+	left: 16px;
+	top: 16px;
+}
+
+.tag {
+	padding: 4px 8px;
+	background-color: #fff;
+	border-radius: 8px;
+
+	* {
+		color: #000;
+		font-size: 14px;
+	}
 }

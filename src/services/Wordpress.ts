@@ -4,6 +4,7 @@ import type { ISettings } from '../interfaces/ISettings'
 import type { IPage } from '../interfaces/IPage'
 import type { IMenu } from '@/interfaces/Menu.interface'
 import type { ICase } from '@/interfaces/Case.interface'
+import type { ICategory } from '@/interfaces/Category.interface'
 
 import { request } from '@/functions/request'
 
@@ -14,6 +15,8 @@ export const Wordpress = {
 	// Получение постов
 	getPosts: () => request<IPost[]>(`${API}/posts`, 'posts'),
 	getPostBySlug: (slug: string) => request<IPost[]>(`${API}/posts?slug=${slug}`, `post-${slug}`),
+	getPostsByCategoryId: (id: number) => request<IPost[]>(`${API}/posts?categories=${id}`, `posts-${id}`),
+	getCategoryById: (id: number) => request<ICategory>(`${API}/categories/${id}`, `category-${id}`),
 	// Получение страниц
 	getPages: () => request<IPage[]>(`${API}/pages`, 'pages'),
 	getPageBySlug: (slug: string) => request<IPage[]>(`${API}/pages?slug=${slug}`, `page-${slug}`),

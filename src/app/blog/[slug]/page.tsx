@@ -9,6 +9,9 @@ import { exists } from '@/functions/exists'
 import type { ReactElement } from 'react'
 import { isDefined } from '@/functions/isDefined'
 import dynamic from 'next/dynamic'
+import { WpCategory } from '@/components/Wp/Category/WpCategory.component'
+import Link from 'next/link'
+import Eval from '@/components/Eval/Eval.component'
 
 const Box = dynamic(() => import('@/ui/components/Box'))
 const Icon = dynamic(() => import('@/ui/components/Icon'))
@@ -35,7 +38,7 @@ export const generateMetadata = async ({ params }: PageProps): Promise<Metadata>
 		openGraph: {
 			title: post.title.rendered,
 			description: post.excerpt.rendered.replace(/[<p>,</p>]/g, ''),
-			url: `https://fb24m.ru/blog/${post.slug}}`,
+			url: `https://fb24m.ru/blog/${post.slug}`,
 			images: [exists(image.guid.rendered)]
 		}
 	}
@@ -57,10 +60,14 @@ const Post = async (props: PageProps): Promise<ReactElement> => {
 							<Box gap={4} align={Alignment.center}><Icon name='calendar_month' />
 								{formatDate(data[0]?.date)}
 							</Box>
+							<Box gap={4} align={Alignment.center}>
+								<Icon name='sell' />
+								<Link href={`/blog/categories/${data[0].categories[0]}`}><WpCategory categoryId={data[0].categories[0]} /></Link>
+							</Box>
 						</Box>
 					</div>
 				</div>
-				<div className={'eval ' + styles.content} dangerouslySetInnerHTML={{ __html: data[0]?.content.rendered }}></div>
+				<Eval className={styles.content} dangerouslySetInnerHTML={{ __html: data[0]?.content.rendered }}></Eval>
 			</div>
 		)
 	} else return <>404</>

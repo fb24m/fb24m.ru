@@ -6,4 +6,5 @@ export interface IPost {
 	excerpt: { rendered: string }
 	featured_media: number
 	slug: string
+	categories: number[]
 }
