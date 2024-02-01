@@ -19,14 +19,15 @@ const Header = async (): Promise<ReactElement> => {
 	const menu = await Wordpress.getMenu()
 
 	return (
-		<header className={`${styles.wrapper} header`}>
+		<header className={styles.wrapper}>
 			<div className={`${styles.container} container`}>
+				<Menu items={menu?.items} breakpoint="(max-width: 767px)" />
 				<Logo />
-				<Menu items={menu?.items} />
+				<Menu items={menu?.items} breakpoint="(min-width: 768px)" />
 				<Box align={Alignment.end} justify={Alignment.end}>
 					<ContactPopup trigger={
 						<Button
-							className={`observe icon-mobile ${styles.button} ${styles.iconMobile}`}
+							className={styles.button}
 							icon="phone_enabled"
 							as='button'
 							appearance='Primary'>Связаться</Button>} />

@@ -15,24 +15,24 @@ const Contact = (): ReactNode => {
 	return (
 		<article className={`container ${styles.container}`} id='contact'>
 			<MarkedList>
-				<li className={`observe ${styles.item}`}>
+				<li>
 					Уже нашли подходящую услугу и хотите заказать? Или еще не нашли, и хотите получить помощь в выборе?
 				</li>
-				<li className={`observe ${styles.item}`}>
+				<li>
 					Оставьте контакты, свяжусь, обсудим ваш проект и подберем тариф - это бесплатно и не отнимет много времени
 				</li>
-				<li className={`observe ${styles.item}`}>
+				<li>
 					Если не ответил в течении 1-2 дней, можете оставить заявку еще раз или написать на почту напрямую - hello@fb24m.ru
 				</li>
-				<li className={`observe ${styles.item}`}>
+				<li>
 					При спаме заявками могу не ответить вовсе. Цените мое и ваше время
 				</li>
-				<li className={`observe ${styles.item}`}>
+				<li>
 					Работаю только по предоплате 50%
 				</li>
 			</MarkedList>
 			<Card size='big'>
-				<Title3 className={styles.title}>Обратная связь</Title3>
+				<Title3>Обратная связь</Title3>
 				<ContactForm idPrefix="contact-block" />
 			</Card>
 			<div className={styles.block}>

@@ -16,6 +16,10 @@
 }
 
 .logoBlock {
+	@media (max-width: breakpoints.$tablet) {
+		flex-grow: 1;
+	}
+
 	a {
 		display: flex;
 		align-items: center;

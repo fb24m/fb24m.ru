@@ -14,8 +14,8 @@ interface AboutCardProps extends HTMLAttributes<HTMLDivElement> {
 export const AboutCard = ({ title, description, ...props }: AboutCardProps): ReactNode => {
 	return (
 		<section {...props}>
-			<Title3 className={`observe ${styles.title}`}>{title}</Title3>
-			<Body1 className="observe">{description}</Body1>
+			<Title3 className={styles.title}>{title}</Title3>
+			<Body1>{description}</Body1>
 		</section>
 	)
 }

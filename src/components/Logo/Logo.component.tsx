@@ -10,7 +10,7 @@ const Logo = async (): Promise<ReactElement> => {
 	const settings = await Wordpress.getSettings()
 
 	return (
-		<div className={`${styles.logoBlock} logoBlock observe`}>
+		<div className={styles.logoBlock}>
 			<Link href="/">
 				<Image width={35} height={35} src={exists(settings?.site_icon_url)} alt="" className={`${styles.logo} headerLogo`} />
 				{settings?.name}

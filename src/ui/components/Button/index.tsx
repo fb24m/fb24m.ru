@@ -19,7 +19,7 @@ interface ButtonProps {
 const Button = ({ as, icon, type, className, href, children, appearance, ...props }: ButtonProps): ReactNode => {
 	const defaultProps = {
 		...props,
-		className: `button button${appearance} ${className}`
+		className: `button button${appearance} ${exists(className)}`
 	}
 
 	if (as === 'a') {

@@ -19,10 +19,10 @@ export const Advantage = (props: AdvantageProps): ReactNode => {
 	return (
 		<section className={exists(props.className)} data-da={props.dataDa}>
 			<div className={styles.header}>
-				<Icon className={`observe ${styles.icon}`} name={props.icon} />
-				<Title3 className="observe">{props.title}</Title3>
+				<Icon className={styles.icon} name={props.icon} />
+				<Title3>{props.title}</Title3>
 			</div>
-			<Body1 className="observe">{props.description}</Body1>
+			<Body1>{props.description}</Body1>
 		</section>
 	)
 }

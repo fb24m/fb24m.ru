@@ -1,6 +1,7 @@
 import { exists } from '@/functions/exists'
 import styles from './index.module.scss'
 import type { HTMLAttributes, ReactNode } from 'react'
+import { classList } from '@/functions/classList'
 
 export interface CardProps extends HTMLAttributes<HTMLDivElement> {
 	size?: 'small' | 'normal' | 'big'
@@ -12,7 +13,7 @@ const Card = ({ className, as, ...props }: CardProps): ReactNode => {
 
 	const childrenProps = {
 		...props,
-		className: `${className} ${styles.card} ${styles[`card_${size}`]}`
+		...classList(className, styles.card, styles[`card_${size}`])
 	}
 
 	if (as === 'section') return <section {...childrenProps}></section>

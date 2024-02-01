@@ -11,7 +11,7 @@ interface IconProps {
 
 const Icon = ({ size = 'small', ...props }: IconProps): ReactNode => {
 	return (
-		<i className={`${styles.icon} ${materialIcons.className} ${styles[size]} ${exists(props.className)}`}>{props.name}</i>
+		<i className={`${styles.icon} ${materialIcons.className} ${exists(styles[size])} ${exists(props.className)}`}>{props.name}</i>
 	)
 }
 

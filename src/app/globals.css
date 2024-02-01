@@ -41,7 +41,11 @@ body {
 
 a {
 	text-decoration: none;
+}
 
+button {
+	outline: 0;
+	border: 0;
 }
 
 .wrapper {
