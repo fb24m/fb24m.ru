@@ -6,6 +6,7 @@ import { Wordpress } from '@/services/Wordpress'
 import { type ReactNode } from 'react'
 import dynamic from 'next/dynamic'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Analytics } from '@vercel/analytics/react'
 
 const Header = dynamic(() => import('@/components/Header'))
 
@@ -31,6 +32,7 @@ const RootLayout = ({ children }: { children: ReactNode }): ReactNode => {
           <Header />
           {children}
           <SpeedInsights />
+          <Analytics />
         </div>
       </body>
     </html>
