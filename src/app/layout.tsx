@@ -30,7 +30,9 @@ const RootLayout = ({ children }: { children: ReactNode }): ReactNode => {
       <body>
         <div className="wrapper">
           <Header />
-          {children}
+          <main>
+            {children}
+          </main>
           <SpeedInsights />
           <Analytics />
         </div>
