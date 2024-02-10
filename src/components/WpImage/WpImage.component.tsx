@@ -14,5 +14,5 @@ export interface WpImagemageProps {
 export const WpImage = async ({ imageId, className, ...props }: WpImagemageProps): Promise<ReactElement> => {
 	const image = await Wordpress.getMediaById(imageId)
 
-	return <Image className={`${styles.image} ${className}`} {...props} width={1000} height={1000} src={exists(image.guid.rendered)} alt="" />
+	return <Image className={`${styles.image} ${className}`} {...props} width={1000} height={1000} src={exists(image?.guid?.rendered)} alt="" />
 }
