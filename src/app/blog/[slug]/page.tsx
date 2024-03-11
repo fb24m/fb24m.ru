@@ -39,7 +39,7 @@ export const generateMetadata = async ({ params }: PageProps): Promise<Metadata>
 			title: post.title.rendered,
 			description: post.excerpt.rendered.replace(/[<p>,</p>]/g, ''),
 			url: `https://fb24m.ru/blog/${post.slug}`,
-			images: [exists(image.guid.rendered)]
+			images: [exists(image?.guid?.rendered)]
 		}
 	}
 }

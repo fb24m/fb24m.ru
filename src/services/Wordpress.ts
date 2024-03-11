@@ -24,7 +24,7 @@ export const Wordpress = {
 	getPortfolio: () => request<ICase[]>(`${API}/portfolio`, 'portfolio'),
 	getCaseBySlug: (slug: string) => request<ICase[]>(`${API}/portfolio?slug=${slug}`, `portfolio-${slug}`),
 	// Дракон
-	getMediaById: (id: number) => request<{ guid: { rendered: string } }>(`${API}/media/${id}`, `image-${id}`),
+	getMediaById: (id: number) => request<{ id: number, guid: { rendered: string }, alt_text: string }>(`${API}/media/${id}`, `image-${id}`),
 	//
 	getGlobalFileBySlug: (slug: string) => request<IPage[]>(`${API}/global-files?slug=${slug}`, `global-file-${slug}`),
 	getSettings: () => request<ISettings>('https://www.fb24m.ru/fb24m/wp-json', 'settings'),

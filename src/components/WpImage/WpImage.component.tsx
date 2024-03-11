@@ -14,5 +14,14 @@ export interface WpImagemageProps {
 export const WpImage = async ({ imageId, className, ...props }: WpImagemageProps): Promise<ReactElement> => {
 	const image = await Wordpress.getMediaById(imageId)
 
-	return <Image className={`${styles.image} ${className}`} {...props} width={1000} height={1000} src={exists(image?.guid?.rendered)} alt="" />
+	return <>
+		{typeof image.id !== 'undefined'
+			? <Image {...props}
+				style={{ color: '#fff' }}
+				className={`${styles.image} ${className}`}
+				width={1000} height={1000}
+				src={exists(image?.guid?.rendered)}
+				alt={image?.alt_text !== '' && typeof image?.alt_text !== 'undefined' ? image?.alt_text : 'Изображение не загрузилось'} />
+			: ''}
+	</>
 }

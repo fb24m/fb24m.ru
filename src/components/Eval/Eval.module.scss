@@ -3,4 +3,30 @@
 	flex-direction: column;
 	gap: 12px;
 	line-height: 150%;
+
+	*:has(table) {
+		width: 100%;
+		overflow-x: auto;
+	}
+
+	table {
+		border-collapse: collapse;
+	}
+
+	tr {
+		&:first-child>* {
+			font-weight: 500;
+		}
+	}
+
+	td {
+		padding: 8px 0;
+		border-bottom: #333 1px solid;
+		padding-left: 16px;
+		white-space: nowrap;
+
+		&:last-child {
+			padding-right: 16px;
+		}
+	}
 }
