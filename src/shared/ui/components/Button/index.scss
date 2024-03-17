@@ -1,0 +1,86 @@
+.button {
+	position: relative;
+
+	font-size: 14px;
+	font-weight: 500;
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 4px;
+
+	padding: 7.5px 10px;
+	border: none;
+	border-radius: 8px;
+
+	user-select: none;
+	cursor: pointer;
+	transition: transform .3s;
+	font-family: inherit;
+
+	&:has(i) {
+		padding-block: 5px;
+	}
+
+	@media(hover: hover) {
+		transition: transform .3s, background-color .3s;
+	}
+}
+
+.buttonPrimary {
+	background-color: var(--mainColor);
+
+	transition: transform .3s, background-color .3s, opacity .3s !important;
+
+	&,
+	& span,
+	& i {
+		color: var(--backgroundColor);
+	}
+
+	@media(hover: hover) {
+		&:hover {
+			background-color: var(--hoverColor);
+		}
+	}
+
+	&:active {
+		background-color: var(--activeColor);
+	}
+}
+
+.buttonSecondary {
+	background-color: transparent;
+
+	outline: #555 1px solid;
+
+	overflow: hidden;
+	color: var(--foregroundColor);
+
+
+	@media(hover: hover) {
+		&:hover {
+			background-color: darken(#555, 15%);
+		}
+	}
+
+	&:active {
+		background-color: darken(#555, 10%);
+	}
+}
+
+.buttonLink {
+	padding: 0;
+
+	transition: transform .3s, color .3s, opacity .3s !important;
+
+	color: var(--mainColor);
+
+	&:hover {
+		color: var(--hoverColor);
+	}
+
+	&:active {
+		color: var(--activeColor);
+	}
+}

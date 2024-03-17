@@ -10,13 +10,13 @@ import type { CustomPopupProps } from '@/interfaces/CustomPopup.props'
 import styles from './ContactForm.module.scss'
 import type { ReactNode } from 'react'
 
-const Spinner = dynamic(() => import('@/ui/components/Spinner/Spinner.component'))
+const Spinner = dynamic(() => import('@/shared/ui/components/Spinner/Spinner.component'))
 
-const Popup = dynamic(() => import('@/components/Popup/Popup.component'))
-const PopupBody = dynamic(() => import('@/components/PopupBody/PopupBody.component'))
-const PopupFooter = dynamic(() => import('@/components/PopupFooter/PopupFooter.component'))
+const Popup = dynamic(() => import('@/shared/ui/components/Popup/Popup.component'))
+const PopupBody = dynamic(() => import('@/shared/ui/components/PopupBody/PopupBody.component'))
+const PopupFooter = dynamic(() => import('@/shared/ui/components/PopupFooter/PopupFooter.component'))
 
-const Button = dynamic(() => import('@/ui/components/Button'))
+const Button = dynamic(() => import('@/shared/ui/components/Button'))
 
 const ContactForm = dynamic(() => import('@/components/ContactForm'))
 

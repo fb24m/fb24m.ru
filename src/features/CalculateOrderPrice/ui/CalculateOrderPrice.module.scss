@@ -1,0 +1,23 @@
+.block {
+	display: flex;
+	gap: 16px;
+}
+
+.range {
+
+	&::-webkit-slider-runnable-track {
+		background: #fff;
+		border-radius: 99px;
+		height: 8px;
+	}
+
+	accent-color: #b9b9b9;
+
+	&::-webkit-slider-thumb {
+		margin-top: -4px;
+	}
+}
+
+.checkListLabel {
+	padding-top: 8px;
+}

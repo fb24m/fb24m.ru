@@ -1,43 +1,17 @@
 import styles from './index.module.scss'
 
-import dynamic from 'next/dynamic'
-import Image from 'next/image'
 import type { ReactNode } from 'react'
-
-const Card = dynamic(() => import('@/ui/components/Card'))
-
-const ContactForm = dynamic(() => import('@/components/ContactForm'))
-
-const Title3 = dynamic(() => import('@/ui/components/Title3'))
-const MarkedList = dynamic(() => import('@/ui/components/MarkedList'))
+import { Order } from '@/widgets/Order/ui'
+import Title2 from '@/shared/ui/components/Title2'
+import { Container } from '@/shared/ui/components/Container'
 
 const Contact = (): ReactNode => {
 	return (
-		<article className={`container ${styles.container}`} id='contact'>
-			<MarkedList>
-				<li>
-					Уже нашли подходящую услугу и хотите заказать? Или еще не нашли, и хотите получить помощь в выборе?
-				</li>
-				<li>
-					Оставьте контакты, свяжусь, обсудим ваш проект и подберем тариф - это бесплатно и не отнимет много времени
-				</li>
-				<li>
-					Если не ответил в течении 1-2 дней, можете оставить заявку еще раз или написать на почту напрямую - hello@fb24m.ru
-				</li>
-				<li>
-					При спаме заявками могу не ответить вовсе. Цените мое и ваше время
-				</li>
-				<li>
-					Работаю только по предоплате 50%
-				</li>
-			</MarkedList>
-			<Card size='big'>
-				<Title3>Обратная связь</Title3>
-				<ContactForm idPrefix="contact-block" />
-			</Card>
-			<div className={styles.block}>
-				<Image width={380} height={380} src="/img/home/contact.png" alt="" />
-			</div>
+		<article id='contact'>
+			<Container>
+				<Title2 className={styles.title}>Узнайте цену вашего сайта</Title2>
+				<Order></Order>
+			</Container>
 		</article>
 	)
 }

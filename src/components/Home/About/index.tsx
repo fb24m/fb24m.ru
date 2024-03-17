@@ -5,14 +5,14 @@ import Image from 'next/image'
 import type { ReactNode } from 'react'
 import dynamic from 'next/dynamic'
 
-const Button = dynamic(() => import('@/ui/components/Button'))
-const Box = dynamic(() => import('@/ui/components/Box'))
+const Button = dynamic(() => import('@/shared/ui/components/Button'))
+const Box = dynamic(() => import('@/shared/ui/components/Box'))
 
-const Title2 = dynamic(() => import('@/ui/components/Title2'))
-const Label = dynamic(() => import('@/ui/components/Label'))
+const Title2 = dynamic(() => import('@/shared/ui/components/Title2'))
+const Label = dynamic(() => import('@/shared/ui/components/Label'))
 
 const About = (): ReactNode => (
-	<article className={styles.wrapper}>
+	<article className={styles.wrapper} id="about">
 		<div className={`${styles.container} container`}>
 			<div className={styles.subblock}>
 				<Label>обо мне</Label>

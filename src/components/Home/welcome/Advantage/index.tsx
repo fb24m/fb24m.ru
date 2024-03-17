@@ -1,11 +1,11 @@
 import { exists } from '@/functions/exists'
 import styles from './style.module.scss'
-import { Body1 } from '@/ui/components'
+import { Body1 } from '@/shared/ui/components'
 import type { ReactNode } from 'react'
 import dynamic from 'next/dynamic'
 
-const Icon = dynamic(() => import('@/ui/components/Icon'))
-const Title3 = dynamic(() => import('@/ui/components/Title3'))
+const Icon = dynamic(() => import('@/shared/ui/components/Icon'))
+const Title3 = dynamic(() => import('@/shared/ui/components/Title3'))
 
 interface AdvantageProps {
 	icon: string

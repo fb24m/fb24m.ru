@@ -1,0 +1,15 @@
+.homeHeader {
+	padding-block: 8px;
+	width: 100%;
+	margin-top: -24px;
+}
+
+.homeHeaderContainer {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px 16px;
+}
+
+.main {
+	padding-top: 32px;
+}

@@ -1,13 +1,13 @@
 import type { ReactNode } from 'react'
 
 import styles from './index.module.scss'
-import { Body1 } from '@/ui/components'
+import { Body1 } from '@/shared/ui/components'
 import dynamic from 'next/dynamic'
 
-const Icon = dynamic(() => import('@/ui/components/Icon'))
-const Card = dynamic(() => import('@/ui/components/Card'))
+const Icon = dynamic(() => import('@/shared/ui/components/Icon'))
+const Card = dynamic(() => import('@/shared/ui/components/Card'))
 
-const Title4 = dynamic(() => import('@/ui/components/Title4'))
+const Title4 = dynamic(() => import('@/shared/ui/components/Title4'))
 
 export interface PetCardProps {
 	title: string

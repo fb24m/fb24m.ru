@@ -1,8 +1,8 @@
 import dynamic from 'next/dynamic'
 import type { ReactNode } from 'react'
 
-const Input = dynamic(() => import('@/ui/components/Input'))
-const Box = dynamic(() => import('@/ui/components/Box'))
+const Input = dynamic(() => import('@/shared/ui/components/Input'))
+const Box = dynamic(() => import('@/shared/ui/components/Box'))
 
 const ContactForm = ({ idPrefix }: { idPrefix: string }): ReactNode => {
 	return (

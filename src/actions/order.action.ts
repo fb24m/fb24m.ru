@@ -1,6 +1,6 @@
 'use server'
 
-import { Telegram } from '@/services/Telegram'
+import { telegram } from '@/services/Telegram'
 
 export const order = async (formData: FormData): Promise<void> => {
 	const rawData = {
@@ -10,7 +10,7 @@ export const order = async (formData: FormData): Promise<void> => {
 	}
 
 	try {
-		const send = await Telegram.sendMessage(`Заказ от ${rawData.name}. Контакт: ${rawData.contact}. Сообщение: ${rawData.message}`)
+		const send = await telegram.sendMessage(`Заказ от ${rawData.name}. Контакт: ${rawData.contact}. Сообщение: ${rawData.message}`)
 
 		if (send.ok) {
 			const response = await send.json()

@@ -1,18 +1,18 @@
 import styles from './index.module.scss'
 
-import { Body1 } from '@/ui/components'
-import { FigmaIcon } from '@/ui/icons/Figma.component'
-import { ReactIcon } from '@/ui/icons/React.component'
-import { NextIcon } from '@/ui/icons/Next.component'
-import { ViteIcon } from '@/ui/icons/Vite.component'
-import { WebPackIcon } from '@/ui/icons/WebPack.component'
+import { Body1 } from '@/shared/ui/components'
+import { FigmaIcon } from '@/shared/ui/icons/Figma.component'
+import { ReactIcon } from '@/shared/ui/icons/React.component'
+import { NextIcon } from '@/shared/ui/icons/Next.component'
+import { ViteIcon } from '@/shared/ui/icons/Vite.component'
+import { WebPackIcon } from '@/shared/ui/icons/WebPack.component'
 import type { ReactNode } from 'react'
 import dynamic from 'next/dynamic'
 
-const Title1 = dynamic(() => import('@/ui/components/Title1'))
-const Title2 = dynamic(() => import('@/ui/components/Title2'))
+const Title1 = dynamic(() => import('@/shared/ui/components/Title1'))
+const Title2 = dynamic(() => import('@/shared/ui/components/Title2'))
 
-const Icon = dynamic(() => import('@/ui/components/Icon'))
+const Icon = dynamic(() => import('@/shared/ui/components/Icon'))
 
 const Welcome = (): ReactNode => {
 	return (
@@ -32,12 +32,6 @@ const Welcome = (): ReactNode => {
 							<li className={styles.skill}><NextIcon /> Next.js</li>
 							<li className={styles.skill}><ViteIcon /> Vite</li>
 							<li className={styles.skill}><WebPackIcon /> WebPack</li>
-						</ul>
-						<Title2>Контакты:</Title2>
-						<ul className={styles.contacts}>
-							<li className={styles.contact}><Icon name="mail" /> Email: hello@fb24m.ru</li>
-							<li className={styles.contact}><Icon name="send" /> Telegram: @fb24m</li>
-							<li className={styles.contact}><Icon name="forum" /> TenChat</li>
 						</ul>
 					</div>
 					<div className={styles.column}>
@@ -62,6 +56,12 @@ const Welcome = (): ReactNode => {
 							<li className={styles.skillItem}>Vite</li>
 							<li className={styles.skillItem}>Next.js</li>
 							<li className={styles.skillItem}>Git</li>
+						</ul>
+						<Title2>Контакты:</Title2>
+						<ul className={styles.contacts}>
+							<li className={styles.contact}><Icon name="mail" /> Email: hello@fb24m.ru</li>
+							<li className={styles.contact}><Icon name="send" /> Telegram: @fb24m</li>
+							<li className={styles.contact}><Icon name="forum" /> TenChat</li>
 						</ul>
 					</div>
 				</div>

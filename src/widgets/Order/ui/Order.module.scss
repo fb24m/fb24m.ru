@@ -1,0 +1,14 @@
+.order {
+	display: flex;
+	gap: 16px;
+	align-items: flex-start;
+
+	&>* {
+		flex-basis: 100%;
+		width: 100%;
+	}
+
+	@media (max-width: 768px) {
+		flex-direction: column;
+	}
+}

@@ -1,7 +1,7 @@
 import styles from './style.module.scss'
 import type { Metadata } from 'next'
 
-import { Alignment } from '@/ui/components'
+import { Alignment } from '@/shared/ui/components'
 import { formatDate } from '@/functions/formatDate'
 import { Wordpress } from '@/services/Wordpress'
 import { WpImage } from '../../../components/WpImage/WpImage.component'
@@ -13,10 +13,10 @@ import { WpCategory } from '@/components/Wp/Category/WpCategory.component'
 import Link from 'next/link'
 import Eval from '@/components/Eval/Eval.component'
 
-const Box = dynamic(() => import('@/ui/components/Box'))
-const Icon = dynamic(() => import('@/ui/components/Icon'))
+const Box = dynamic(() => import('@/shared/ui/components/Box'))
+const Icon = dynamic(() => import('@/shared/ui/components/Icon'))
 
-const Title3 = dynamic(() => import('@/ui/components/Title3'))
+const Title3 = dynamic(() => import('@/shared/ui/components/Title3'))
 
 interface PageProps {
 	params: { slug: string }

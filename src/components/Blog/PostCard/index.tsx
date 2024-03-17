@@ -6,7 +6,7 @@ import dynamic from 'next/dynamic'
 import type { PostCardProps } from './PostCard.props'
 import { WpCategory } from '@/components/Wp/Category/WpCategory.component'
 
-const Card = dynamic(() => import('@/ui/components/Card'))
+const Card = dynamic(() => import('@/shared/ui/components/Card'))
 
 const PostCard = async (props: PostCardProps): Promise<ReactElement> => {
 	return (
