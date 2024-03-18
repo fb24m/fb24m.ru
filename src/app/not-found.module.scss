@@ -14,6 +14,11 @@
 		flex-basis: 60%;
 		max-width: 600px;
 
+		animation: {
+			name: image;
+			duration: 1s;
+			iteration-count: 1;
+		}
 	}
 
 	img {
@@ -25,11 +30,37 @@
 	}
 }
 
+@keyframes image {
+	0% {
+		opacity: 0;
+		transform: translateX(-100px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
 .error {
 	font-size: 380px;
 	font-weight: 900;
 	letter-spacing: 10%;
 	margin-left: -120px;
+
+	position: relative;
+	z-index: -1;
+
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0) 20%, #fff 150%);
+	background-clip: text;
+
+	color: transparent;
+
+	animation: {
+		name: error;
+		duration: 5s;
+		iteration-count: infinite;
+	}
 
 	&.small {
 		display: none;
@@ -59,6 +90,20 @@
 
 	@media (max-width: 475px) {
 		font-size: 180px;
+	}
+}
+
+@keyframes error {
+	0% {
+		transform: translateY(-30px);
+	}
+
+	50% {
+		transform: translateY(0);
+	}
+
+	100% {
+		transform: translateY(-30px);
 	}
 }
 
