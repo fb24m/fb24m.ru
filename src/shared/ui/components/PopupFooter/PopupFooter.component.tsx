@@ -10,7 +10,7 @@ import { exists } from '@/functions/exists'
 import dynamic from 'next/dynamic'
 import { classList } from '@/functions/classList'
 
-const Button = dynamic(() => import('@/shared/ui/components/Button'))
+import Button from '@/shared/ui/components/Button'
 const Box = dynamic(() => import('@/shared/ui/components/Box'))
 
 const PopupFooter = ({ className, children, ...props }: PopupFooterProps): ReactNode => {

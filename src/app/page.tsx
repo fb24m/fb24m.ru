@@ -2,9 +2,10 @@ import type { ReactNode } from 'react'
 import styles from './page.module.css'
 
 import dynamic from 'next/dynamic'
-import Button from '@/shared/ui/components/Button'
 import { Container } from '@/shared/ui/components/Container'
 
+import Button from '@/shared/ui/components/Button'
+import { Reviews } from '@/widgets/Reviews/ui'
 const Welcome = dynamic(() => import('@/components/Home/welcome'))
 const About = dynamic(() => import('@/components/Home/About'))
 const Contact = dynamic(() => import('@/components/Home/Contact'))
@@ -23,6 +24,7 @@ const Home = (): ReactNode => {
       <div className={styles.main}>
         <Welcome />
         <About />
+        <Reviews />
         <Portfolio />
         <Contact />
       </div>

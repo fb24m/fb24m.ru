@@ -9,7 +9,7 @@
 	justify-content: center;
 	gap: 4px;
 
-	padding: 7.5px 10px;
+	padding: 7.5px 12px;
 	border: none;
 	border-radius: 8px;
 
@@ -27,20 +27,39 @@
 	}
 }
 
-.buttonPrimary {
-	background-color: var(--mainColor);
-
-	transition: transform .3s, background-color .3s, opacity .3s !important;
+.Primary {
+	background: linear-gradient(45deg, var(--mainColor), #3458c4);
+	transition: transform .3s, background .3s, opacity .3s !important;
+	position: relative;
+	overflow: hidden;
 
 	&,
 	& span,
 	& i {
 		color: var(--backgroundColor);
+		z-index: 1;
+		position: relative;
+	}
+
+	&::before {
+		transition: opacity .2s ease;
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 0;
+
+		background: linear-gradient(180deg, var(--mainColor), #3458c4);
+		opacity: 0;
 	}
 
 	@media(hover: hover) {
 		&:hover {
-			background-color: var(--hoverColor);
+			&::before {
+				opacity: 1;
+			}
 		}
 	}
 
@@ -49,10 +68,12 @@
 	}
 }
 
-.buttonSecondary {
+.Secondary {
 	background-color: transparent;
 
 	outline: #555 1px solid;
+	border-bottom: #555 1px solid;
+	padding-bottom: 4px;
 
 	overflow: hidden;
 	color: var(--foregroundColor);
@@ -69,18 +90,22 @@
 	}
 }
 
-.buttonLink {
+.Link {
 	padding: 0;
 
 	transition: transform .3s, color .3s, opacity .3s !important;
 
-	color: var(--mainColor);
+	&,
+	& span,
+	& i {
+		color: var(--mainColor);
 
-	&:hover {
-		color: var(--hoverColor);
-	}
+		&:hover {
+			color: var(--hoverColor);
+		}
 
-	&:active {
-		color: var(--activeColor);
+		&:active {
+			color: var(--activeColor);
+		}
 	}
 }

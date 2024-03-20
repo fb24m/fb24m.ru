@@ -5,15 +5,16 @@ import styles from './Order.module.scss'
 import { Calculator } from '@/features/CalculateOrderPrice/ui'
 import { OrderForm } from '@/features/OrderForm/ui'
 import clsx from 'clsx'
+
 import Button from '@/shared/ui/components/Button'
 
-export const Order = (): ReactNode => {
+export const Order = ({ vertical }: { vertical?: boolean }): ReactNode => {
 	const [message, setMessage] = useState('')
 	const [isReady, setIsReady] = useState(false)
 	const [skipCalculating, setSkipCalculating] = useState(false)
 
 	return (
-		<div className={styles.order}>
+		<div className={clsx(styles.order, vertical === true && styles.vertical)}>
 			{!skipCalculating && <Calculator setMessage={setMessage} setIsReady={setIsReady} />}
 
 			{(isReady || skipCalculating) && <OrderForm className={clsx()} message={message} />}

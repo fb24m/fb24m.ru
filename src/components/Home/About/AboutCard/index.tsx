@@ -7,14 +7,14 @@ import dynamic from 'next/dynamic'
 const Title3 = dynamic(() => import('@/shared/ui/components/Title3'))
 
 interface AboutCardProps extends HTMLAttributes<HTMLDivElement> {
-	title: string
+	cardTitle: ReactNode | string
 	description: string
 }
 
-export const AboutCard = ({ title, description, ...props }: AboutCardProps): ReactNode => {
+export const AboutCard = ({ cardTitle, description, ...props }: AboutCardProps): ReactNode => {
 	return (
 		<section {...props}>
-			<Title3 className={styles.title}>{title}</Title3>
+			<Title3 className={styles.title}>{cardTitle}</Title3>
 			<Body1>{description}</Body1>
 		</section>
 	)

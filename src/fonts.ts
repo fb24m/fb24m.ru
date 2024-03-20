@@ -8,7 +8,7 @@ export const firaCode = Fira_Code({
 })
 
 export const materialIcons = localFont({
-	src: './fonts/MaterialSymbolsOutlined.woff2',
+	src: './fonts/icons.woff2',
 	display: 'swap',
 	weight: '200',
 	preload: false

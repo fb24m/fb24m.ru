@@ -1,18 +1,24 @@
 @use '@/scss/grid';
 @use '@/scss/breakpoints';
 
-.block {
-	margin-bottom: 64px;
-}
 
 .columns {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	margin-bottom: 24px;
 	gap: 24px;
 
 	@media (max-width: breakpoints.$tablet-l) {
-		grid-template-columns: 1fr;
+		display: flex;
+	}
+
+	&>* {
+		@media (max-width: breakpoints.$tablet-l) {
+			flex-basis: 50%
+		}
+	}
+
+	@media (max-width: breakpoints.$tablet) {
+		flex-direction: column;
 	}
 }
 
@@ -35,7 +41,37 @@
 	height: 100%;
 	display: flex;
 	flex-direction: column;
-	gap: 24px;
+	align-items: flex-start;
+
+	&.wide {
+		grid-column-start: 1;
+		grid-column-end: 3;
+	}
+
+	&:first-child {
+		transform: translateX(0);
+		opacity: 1;
+
+		animation: {
+			name: firstBlock;
+			duration: .6s;
+			iteration-count: 1;
+		}
+	}
+
+	&:last-child {
+		transform: translateY(-100px);
+		opacity: 0;
+
+		animation: {
+			name: secondBlock;
+			duration: .6s;
+			delay: .6s;
+			iteration-count: 1;
+		}
+
+		animation-fill-mode: forwards;
+	}
 
 	@media (max-width: 1000px) {
 		flex-basis: 50%;
@@ -43,6 +79,30 @@
 
 	@media(max-width: breakpoints.$tablet) {
 		flex-basis: 100%;
+	}
+}
+
+@keyframes firstBlock {
+	0% {
+		transform: translateX(-100px);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@keyframes secondBlock {
+	0% {
+		transform: translateY(50px);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateY(0);
+		opacity: 1;
 	}
 }
 
@@ -54,18 +114,17 @@
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 16px 24px;
+	margin-top: 24px;
+}
+
+.contactButton {
+	margin-top: 24px;
 }
 
 .skill {
 	display: flex;
 	align-items: center;
 	gap: 12px;
-}
-
-.contacts {
-	display: flex;
-	flex-direction: column;
-	gap: 8px;
 }
 
 .contact {
@@ -82,6 +141,24 @@
 	display: flex;
 	flex-wrap: wrap;
 	gap: 8px;
+	margin-top: 100vh;
+
+	animation: {
+		name: skillItems;
+		duration: .8s;
+		delay: 1.2s;
+		fill-mode: forwards;
+	}
+}
+
+@keyframes skillItems {
+	0% {
+		margin-top: 100vh;
+	}
+
+	100% {
+		margin-top: 64px;
+	}
 }
 
 .skillItem {
@@ -91,4 +168,27 @@
 	background-color: #fff;
 	color: #000;
 	border-radius: 8px;
+}
+
+.cornerAligned {
+	grid-column-start: 3;
+	grid-column-end: 3;
+	display: flex;
+	align-items: flex-end;
+
+	@media (max-width: breakpoints.$tablet) {
+		align-items: flex-start;
+	}
+}
+
+.image {
+	max-width: 374px;
+}
+
+.cotnactButton {
+	margin-top: 8px;
+}
+
+.contacts {
+	margin-top: 24px;
 }

@@ -1,8 +1,9 @@
 import Link from 'next/link'
-import './index.scss'
+import styles from './index.module.scss'
 import { exists } from '@/functions/exists'
 import type { ReactNode } from 'react'
 import dynamic from 'next/dynamic'
+import clsx from 'clsx'
 
 const Icon = dynamic(() => import('@/shared/ui/components/Icon'))
 
@@ -19,18 +20,22 @@ export interface ButtonProps {
 const Button = ({ as, icon, type, className, href, children, appearance, ...props }: ButtonProps): ReactNode => {
 	const defaultProps = {
 		...props,
-		className: `button button${appearance} ${exists(className)}`
+		className: clsx(styles.button, styles[exists(appearance)], exists(className))
 	}
 
 	if (as === 'a') {
 		return <Link prefetch={false} {...defaultProps} href={exists(href)}>
-			<Icon name={exists(icon)} />
-			{children}
+			{typeof icon !== 'undefined' && <Icon name={exists(icon)} />}
+			<span>
+				{children}
+			</span>
 		</Link>
 	} else {
 		return <button {...defaultProps}>
-			<Icon name={exists(icon)} />
-			{children}
+			{typeof icon !== 'undefined' && <Icon name={exists(icon)} />}
+			<span>
+				{children}
+			</span>
 		</button>
 	}
 }

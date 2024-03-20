@@ -1,5 +1,4 @@
 import styles from './index.module.scss'
-import './index.scss'
 import type { HTMLAttributes, ReactElement } from 'react'
 
 import { Body1 } from '@/shared/ui/components'

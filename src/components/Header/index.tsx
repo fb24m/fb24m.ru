@@ -4,13 +4,13 @@ import dynamic from 'next/dynamic'
 import { Alignment } from '@/shared/ui/components'
 import { Wordpress } from '@/services/Wordpress'
 import type { ReactElement } from 'react'
+import Button from '@/shared/ui/components/Button'
 
 const Menu = dynamic(() => import('./Menu/Menu.component'))
 const Logo = dynamic(async () => await import('@/components/Logo/Logo.component'))
 
 const ContactPopup = dynamic(async () => await import('@/popups/Contact.popup'), { ssr: false })
 
-const Button = dynamic(() => import('@/shared/ui/components/Button'))
 const Box = dynamic(() => import('@/shared/ui/components/Box'))
 
 const Header = async (): Promise<ReactElement> => {

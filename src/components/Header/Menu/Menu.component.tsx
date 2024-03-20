@@ -6,7 +6,7 @@ import type { MenuProps } from './Menu.props'
 import dynamic from 'next/dynamic'
 import { useMedia } from '@/hooks/useMedia'
 
-const Button = dynamic(() => import('@/shared/ui/components/Button'))
+import Button from '@/shared/ui/components/Button'
 const Icon = dynamic(() => import('@/shared/ui/components/Icon'))
 
 const Menu = (props: MenuProps): ReactNode => {

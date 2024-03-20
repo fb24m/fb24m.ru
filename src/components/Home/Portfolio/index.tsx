@@ -1,4 +1,3 @@
-import './index.scss'
 import styles from './index.module.scss'
 
 import { Case } from './Case'

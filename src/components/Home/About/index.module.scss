@@ -1,16 +1,16 @@
 @use "@/scss/breakpoints";
 
 .wrapper {
-	margin-bottom: 64px;
 	border-radius: 0 0 32px 32px;
 }
 
-.title {
-	margin-bottom: 32px;
+.body {
+	margin-top: 16px;
 }
 
 .container {
 	display: grid;
+	gap: 24px;
 	grid-template-columns: repeat(3, 1fr);
 
 	@media (max-width: breakpoints.$tablet) {
@@ -21,7 +21,7 @@
 .cards {
 	display: flex;
 	gap: 24px;
-	margin-bottom: 32px;
+	margin-top: 24px;
 
 	@media (max-width: breakpoints.$tablet-l) {
 		flex-wrap: wrap;
@@ -31,6 +31,10 @@
 .subblock:nth-child(1) {
 	grid-column-start: 1;
 	grid-column-end: 3;
+}
+
+.buttons {
+	margin-top: 24px;
 }
 
 .image {

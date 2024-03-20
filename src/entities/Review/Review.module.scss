@@ -1,0 +1,28 @@
+.author {
+	display: flex;
+	align-items: center;
+	gap: 24px;
+}
+
+.avatar {
+	width: 40px;
+	height: 40px;
+	object-fit: cover;
+	border-radius: 999px;
+}
+
+.rate {
+	display: flex;
+	margin-left: -1px;
+
+	i {
+		font-size: 16px;
+		color: #ffd900;
+
+		font-variation-settings:
+			'FILL' 1,
+			'wght' 400,
+			'GRAD' 0,
+			'opsz' 24
+	}
+}
