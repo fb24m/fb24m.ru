@@ -5,6 +5,10 @@ const nextConfig = {
 			{
 				hostname: 'www.fb24m.ru',
 				pathname: '/**/*'
+			},
+			{
+				hostname: 'cdn-edge.kwork.ru',
+				pathname: '/**/*'
 			}
 		]
 	}

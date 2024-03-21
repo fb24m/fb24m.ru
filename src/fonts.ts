@@ -11,5 +11,5 @@ export const materialIcons = localFont({
 	src: './fonts/icons.woff2',
 	display: 'swap',
 	weight: '200',
-	preload: false
+	preload: true
 })

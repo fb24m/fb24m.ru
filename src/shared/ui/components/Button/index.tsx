@@ -25,14 +25,14 @@ const Button = ({ as, icon, type, className, href, children, appearance, ...prop
 
 	if (as === 'a') {
 		return <Link prefetch={false} {...defaultProps} href={exists(href)}>
-			{typeof icon !== 'undefined' && <Icon name={exists(icon)} />}
+			{typeof icon !== 'undefined' && <Icon className={styles.icon} name={exists(icon)} />}
 			<span>
 				{children}
 			</span>
 		</Link>
 	} else {
 		return <button {...defaultProps}>
-			{typeof icon !== 'undefined' && <Icon name={exists(icon)} />}
+			{typeof icon !== 'undefined' && <Icon className={styles.icon} name={exists(icon)} />}
 			<span>
 				{children}
 			</span>

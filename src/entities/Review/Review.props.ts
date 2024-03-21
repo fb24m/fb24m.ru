@@ -1,5 +1,5 @@
 export interface ReviewProps {
-	name: string
+	username: string
 	stars: number
 	avatarUrl: string
 	text: string
