@@ -12,6 +12,7 @@ import dynamic from 'next/dynamic'
 import { WpCategory } from '@/components/Wp/Category/WpCategory.component'
 import Link from 'next/link'
 import Eval from '@/components/Eval/Eval.component'
+import { Container } from '@/shared/ui/components/Container'
 
 const Box = dynamic(() => import('@/shared/ui/components/Box'))
 const Icon = dynamic(() => import('@/shared/ui/components/Icon'))
@@ -50,7 +51,7 @@ const Post = async (props: PageProps): Promise<ReactElement> => {
 
 	if (isDefined(data)) {
 		return (
-			<div className={`container ${styles.container}`}>
+			<Container className={styles.container}>
 				<div className={styles.base}>
 					<WpImage className={styles.image} imageId={data[0].featured_media} />
 					<div className={styles.info}>
@@ -68,7 +69,7 @@ const Post = async (props: PageProps): Promise<ReactElement> => {
 					</div>
 				</div>
 				<Eval className={styles.content} dangerouslySetInnerHTML={{ __html: data[0]?.content.rendered }}></Eval>
-			</div>
+			</Container>
 		)
 	} else return <>404</>
 }

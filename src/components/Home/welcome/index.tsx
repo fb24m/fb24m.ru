@@ -11,6 +11,7 @@ import Image from 'next/image'
 import clsx from 'clsx'
 import Link from 'next/link'
 import Button from '@/shared/ui/components/Button'
+import { Container } from '@/shared/ui/components/Container'
 
 const Title1 = dynamic(() => import('@/shared/ui/components/Title1'))
 const Title2 = dynamic(() => import('@/shared/ui/components/Title2'))
@@ -20,7 +21,7 @@ const Icon = dynamic(() => import('@/shared/ui/components/Icon'))
 const Welcome = (): ReactNode => {
 	return (
 		<article className={styles.block}>
-			<div className="container">
+			<Container>
 				<div className={styles.columns}>
 					<div className={clsx(styles.column, styles.wide)}>
 						<Title1>Привет!</Title1>
@@ -70,7 +71,7 @@ const Welcome = (): ReactNode => {
 					<li className={styles.skillItem}>Next.js</li>
 					<li className={styles.skillItem}>Git</li>
 				</ul>
-			</div>
+			</Container>
 		</article>
 	)
 }

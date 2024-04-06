@@ -7,6 +7,7 @@ import dynamic from 'next/dynamic'
 
 import Button from '@/shared/ui/components/Button'
 import { Body1 } from '@/shared/ui/components'
+import { Container } from '@/shared/ui/components/Container'
 const Box = dynamic(() => import('@/shared/ui/components/Box'))
 
 const Title2 = dynamic(() => import('@/shared/ui/components/Title2'))
@@ -14,7 +15,7 @@ const Label = dynamic(() => import('@/shared/ui/components/Label'))
 
 const About = (): ReactNode => (
 	<article className={styles.wrapper} id="about">
-		<div className={`${styles.container} container`}>
+		<Container className={styles.container}>
 			<div className={styles.subblock}>
 				<Label>обо мне</Label>
 				<Title2 className={styles.title}>Кто я такой?</Title2>
@@ -46,7 +47,7 @@ const About = (): ReactNode => (
 			<div className={styles.subblock}>
 				<Image className={styles.image} width={380} height={380} src="/img/home/about-image.png" alt="" />
 			</div>
-		</div>
+		</Container>
 	</article>
 )
 
