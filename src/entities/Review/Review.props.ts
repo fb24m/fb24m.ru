@@ -3,4 +3,5 @@ export interface ReviewProps {
 	stars: number
 	avatarUrl: string
 	text: string
+	className?: string
 }
