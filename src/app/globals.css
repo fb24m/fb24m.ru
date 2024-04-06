@@ -1,6 +1,4 @@
-@layer null;
-@layer ui;
-@layer styles;
+@layer null, ui, styles;
 
 @layer null {
   :root {
